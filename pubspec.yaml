@@ -1,0 +1,16 @@
+name: poly
+description: A starting point for Dart libraries or applications.
+version: 1.0.0
+homepage: https://www.example.com
+author: sacchi <email@example.com>
+
+environment:
+  sdk: '>=2.1.0 <3.0.0'
+
+dependencies:
+  json_serializable: ^2.1.0
+#  path: ^1.4.1
+
+dev_dependencies:
+  pedantic: ^1.0.0
+  test: ^1.0.0
