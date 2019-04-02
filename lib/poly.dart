@@ -1,12 +1,12 @@
 /// Library for checking if given point is present in Polygon or not
 
-
 library poly;
 
 export 'src/poly_base.dart';
 export 'dart:math';
 
 import 'dart:math';
+
 //import 'package:json_serializable/json_serializable.dart';
 // TODO: Add json support
 class Polygon {
@@ -17,7 +17,6 @@ class Polygon {
       throw new ArgumentError("Please provide three or more points.");
     }
   }
-
 
   /// returns 'true' if [x,y] is present inside Polygon
   bool contains(num px, num py) {
@@ -47,10 +46,7 @@ class Polygon {
   }
 
   /// returns 'true' if [Point i] is present inside Polygon
-  bool contains_p(Point i){
+  bool contains_p(Point i) {
     return contains(i.x, i.y);
   }
-
-
 }
-
