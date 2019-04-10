@@ -1,17 +1,37 @@
-import 'package:poly/poly.dart';
-import 'package:test/test.dart';
+//import 'package:poly/poly.dart';
+
+
+import "package:test/test.dart";
 
 void main() {
-// TODO: Add test
-//  group('A group of tests', () {
-//    Awesome awesome;
-//
-//    setUp(() {
-//      awesome = Awesome();
-//    });
-//
-//    test('First Test', () {
-//      expect(awesome.isAwesome, isTrue);
-//    });
-//  });
+  group("String", () {
+    test(".split() splits the string on the delimiter", () {
+      var string = "foo,bar,baz";
+      expect(string.split(","), equals(["foo", "bar", "baz"]));
+    });
+
+    test(".trim complex", () {
+      var string = "foo,bar,baz ";
+      expect(string.trim(),allOf([
+        contains("foo"),
+        isNot(startsWith("bar")),
+        endsWith("baz")
+    ]));
+    });
+
+    test(".trim() removes surrounding whitespace", () {
+      var string = "  foo ";
+      expect(string.trim(), equals("foo"));
+    });
+  });
+
+  group("int", () {
+    test(".remainder() returns the remainder of division", () {
+      expect(11.remainder(3), equals(2));
+    });
+
+    test(".toRadixString() returns a hex string", () {
+      expect(11.toRadixString(16), equals("b"));
+    });
+  });
 }
