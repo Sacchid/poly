@@ -12,7 +12,7 @@ main() {
   ];
 
   /// List of Points can be passed as parameter to constructor Polygon()
-  Polygon testWyse = Polygon(l);
+  Polygon testPolygon = Polygon(l);
   // Or Just Pass List inside constructor
   Polygon a = Polygon([
     Point(18.4851825, 73.8498851),
@@ -27,7 +27,7 @@ main() {
   /// A Point can be checked if it's present inside the Polygon by passing [Point i] to isPointInside function
   // Should Print true
   print(
-      "${++example_count}. in1=(18.48569, 73.85067) is inside testWyse - ${testWyse.isPointInside(in1)}");
+      "${++example_count}. in1=(18.48569, 73.85067) is inside testWyse - ${testPolygon.isPointInside(in1)}");
 
   /// X,Y can be checked if they are present inside polygon by passing [x,y] to contains function
   // Should Print true
@@ -37,16 +37,17 @@ main() {
   /// Multiple Points inside a List can be tested by passing it to areAllPointsInsidePolygon_ListPoint
   // Should Print true
   print(
-      "${++example_count}. All points in l are within testWyse - ${testWyse.areAllPointsInsidePolygon_ListPoint(l)}");
+      "${++example_count}. All points in l are within testWyse - ${testPolygon.areAllPointsInsidePolygon_ListPoint(l)}");
 
+  ///areAllPointsInsidePolygon_ListPoint returns true if all Point<num> are inside Polygon
   // Should Print false
   List<Point<num>> notInsidePoints = []..addAll(l)..addAll([Point(75, 90)]);
   print(
-      "${++example_count}. All points in notInsidePoints are within testWyse - ${testWyse.areAllPointsInsidePolygon_ListPoint(notInsidePoints)}");
+      "${++example_count}. All points in notInsidePoints are within testWyse - ${testPolygon.areAllPointsInsidePolygon_ListPoint(notInsidePoints)}");
   //  print("${notInsidePoints}, ${notInsidePoints.runtimeType}");
 
-  /// returns true if all Point<num> are inside Polygon
-  // Should return/print false
+  /// getList_IsListOfPointInside returns List<bool> as List<Point> if List<Point> are inside Polygon
+  // Should Print: [true, true, true, true, true, true, false]
   print(
-      "${++example_count}. Are All points inside testWyse polygon - ${testWyse.areAllPointsInsidePolygon_ListPoint(notInsidePoints)}");
+      "${++example_count}. Status of notInsidePoints - ${testPolygon.getList_IsListOfPointInside(notInsidePoints)}");
 }

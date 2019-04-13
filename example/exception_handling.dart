@@ -26,7 +26,7 @@ main() {
   //  Exception - 1
   ///  NeedsAtLeastThreePoints is thrown if Polygon.points contains less than 3 points
   try {
-    Polygon less_than_3 = to_poly_from_list_of_list(w2);
+    Polygon less_than_3 = toPolyFromListOfList(w2);
   } on NeedsAtLeastThreePoints catch (e) {
     print("\n");
     print(
@@ -35,17 +35,18 @@ main() {
   // Exception - 2
   ///WrongSizeForPoint is thrown if to_Point has more or less than 2 element. Point has only x and y.
   try {
-    var b = to_Point(w1);
+    var b = toPoint(w1);
   } on WrongSizeForPoint catch (e) {
     print(
         "${++exception_count}. ${e.runtimeType} Exception handled : \n \t \u2022 Wrong size, List must have 2 element. Current Size: ${e.inputListLength()}");
   }
 
 //  Exception - 3
-  /// _TypeError is thrown if List<dynamic> is passed instead of List<num>  e.g. type 'List<dynamic>' is not a subtype of type 'List<num>'
+  /// `TypeError` is thrown if `List<dynamic>` is passed instead of `List<num>`
+  /// e.g. type 'List<dynamic>' is not a subtype of type 'List<num>'
   try {
     List dy = [1, 2];
-    var ttemp = to_Point(dy);
+    var ttemp = toPoint(dy);
     print(ttemp.runtimeType);
   } on TypeError catch (e) {
     print(
@@ -53,9 +54,9 @@ main() {
   }
 
 //  Exception - 4
-  /// _CastError example - List<num> to List<List<int>>
+  /// `CastError` example - List<num> to List<List<int>>
   try {
-    Polygon ooo = to_poly_from_list_of_list(w1.cast());
+    Polygon ooo = toPolyFromListOfList(w1.cast());
   } on TypeError catch (e) {
     print(
         "${++exception_count}. ${e.runtimeType} Exception handled : \n \t \u2022 ${e}");
