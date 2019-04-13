@@ -4,9 +4,11 @@ library poly;
 
 export 'dart:math';
 
-import 'dart:math';
+import 'dart:math' show Point;
 import 'package:csv/csv.dart';
-import 'dart:convert';
+import 'dart:convert' show utf8;
+import 'package:collection/collection.dart' as checkList show DeepCollectionEquality;
+
 
 // Appends 2 or 3 Strings - DO not use - problem
 
@@ -101,10 +103,13 @@ Polygon toPolyFromListOfList(List<List<num>> list_of_list) {
 //import 'package:json_serializable/json_serializable.dart';
 // TODO: Add json support ??
 // TODO: Polygon Name ??
+
+/// A class for representing two-dimensional Polygon defined with `List<Point<num>> points`.
 class Polygon {
   final List<Point<num>> points;
   String name;
 
+  ///Create a `Polygon` with vertices at `points`.
   /// Pass a `List<Point<num>>`
   Polygon(List<Point<num>> points) : points = points.toList(growable: false) {
     var _number_of_point = this.points.length;
@@ -142,6 +147,18 @@ class Polygon {
     return (depth & 1) == 1;
   }
 
+  /// Checks if 2 `Polygon` have same vertices i.e. `points`
+  bool hasSamePoint(Polygon anotherPolygon){
+    bool same = (points.length == anotherPolygon.points.length);
+    if(!same){
+      return false;
+    }
+    else{
+//      int _length = points.length;
+      Function deepEq = const checkList.DeepCollectionEquality.unordered().equals;
+      return deepEq(points, anotherPolygon.points);
+    }
+  }
   /// returns `true` if `Point` is present inside `Polygon`
   bool isPointInside(Point i) {
     return contains(i.x, i.y);
@@ -276,48 +293,6 @@ Future<List<List>> csvToListOfList(var csvString,
   return listOfList;
 }
 
-//Future<Polygon> csvToPoly_casting_issue(var input, {bool isReversed = false}) async {
-//  List<List<num>> fields = await input
-//      .transform(utf8.decoder)
-//      .transform(new CsvToListConverter())
-//      .toList();
-//  if (fields[0][0].runtimeType == String) {
-//    fields.removeAt(0);
-//  }
-//  final List<List<num>> numList = fields.cast<List<num>>();
-//  List<List<num>> rever = [];
-//  for (int i = 0; i < numList.length; i++) {
-//    num x = numList[i][1].toDouble();
-//    num y = numList[i][0].toDouble();
-//    rever.add([x, y]);
-//  }
-//  Polygon _out = to_poly_from_list_of_list(numList);
-//  return _out;
-//}
-////WOrks - type double
-//Future<void> csvToTemp(var input, {bool isReversed = false}) async {
-//  List<List> fields = await input
-//      .transform(utf8.decoder)
-//      .transform(new CsvToListConverter())
-//      .toList();
-//  if (fields[0][0].runtimeType == String) {
-//    fields.removeAt(0);
-//  }
-////  final List<List<num>> numList = fields.cast<List<num>>();
-//
-//  List<List<num>> rever = [];
-//  for (int i = 0; i <fields.length; i++) {
-//    var x = fields[i][1];
-//    var y = fields[i][0];
-//    print(x.runtimeType);
-//    rever.add([x, y]);
-//  }
-////  return x;
-////  Polygon _out = to_poly_from_list_of_list(rever);
-////  return _out;
-//}
-// Works
-
 /// * Returns `Future<Polygon>` based on `csvString`
 /// * `csvString` may or may not contain header row
 /// * This function checks if `latitude,longitude` or `x,y` are reversed
@@ -361,3 +336,44 @@ Future<Polygon> csvToPoly(var csvString, {bool isReversed = false}) async {
   Polygon _out = toPolyFromListOfList(numList);
   return _out;
 }
+
+//Future<Polygon> csvToPoly_casting_issue(var input, {bool isReversed = false}) async {
+//  List<List<num>> fields = await input
+//      .transform(utf8.decoder)
+//      .transform(new CsvToListConverter())
+//      .toList();
+//  if (fields[0][0].runtimeType == String) {
+//    fields.removeAt(0);
+//  }
+//  final List<List<num>> numList = fields.cast<List<num>>();
+//  List<List<num>> rever = [];
+//  for (int i = 0; i < numList.length; i++) {
+//    num x = numList[i][1].toDouble();
+//    num y = numList[i][0].toDouble();
+//    rever.add([x, y]);
+//  }
+//  Polygon _out = to_poly_from_list_of_list(numList);
+//  return _out;
+//}
+////WOrks - type double
+//Future<void> csvToTemp(var input, {bool isReversed = false}) async {
+//  List<List> fields = await input
+//      .transform(utf8.decoder)
+//      .transform(new CsvToListConverter())
+//      .toList();
+//  if (fields[0][0].runtimeType == String) {
+//    fields.removeAt(0);
+//  }
+////  final List<List<num>> numList = fields.cast<List<num>>();
+//
+//  List<List<num>> rever = [];
+//  for (int i = 0; i <fields.length; i++) {
+//    var x = fields[i][1];
+//    var y = fields[i][0];
+//    print(x.runtimeType);
+//    rever.add([x, y]);
+//  }
+////  return x;
+////  Polygon _out = to_poly_from_list_of_list(rever);
+////  return _out;
+//}

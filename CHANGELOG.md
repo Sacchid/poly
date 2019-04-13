@@ -1,5 +1,6 @@
 ## 1.0.0
 - Initial version, created by Stagehand
+- Had `Polygon`, `contains()`
 ## 1.0.1 
 As suggested by pub.dartlang.org analysis
 - Ran dartfmt on poly.dart & 
@@ -13,4 +14,8 @@ Added following functions & examples for -
 * [Easy Casting](example/easy_casting.dart)
 * [Simple CSV](example/simple_csv.dart)
 * [Conversion](example/conversion.dart)
+## 1.0.4
+- Optimized imports
+- Added `Polygon.hasSamePoint()`
+- [Issue raised for `List<List<dyanamic>>` to `List<List<num>>` casting exception](https://github.com/dart-lang/sdk/issues/36614 "Dart-lang List<List<dyanamic>> to List<List<num>> Casting Issue")
 

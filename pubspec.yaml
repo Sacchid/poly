@@ -1,6 +1,6 @@
 name: poly
 description: A library for checking if given point(s) is present inside Polygon or not.
-version: 1.0.3
+version: 1.0.4
 homepage: https://github.com/Sacchid/poly
 author: sacchi <email@example.com>
 
@@ -8,7 +8,8 @@ environment:
   sdk: '>=2.1.0 <3.0.0'
 
 dependencies:
-  csv: ^4.0.2
+  csv: ^4.0.3
+  collection: ^1.14.11
 #  json_serializable: ^2.1.0
 #  path: ^1.4.1
 

@@ -3,10 +3,11 @@ A library for checking if given point(s) is present inside Polygon or not.
 ## Usage
 ### [1. A  very simple usage example ](example/poly_example.dart "Basic example")
  1. Creates 2 Polygons from `List<Point>`
+ 2. Checks if 2 `Polygon` have same vertices i.e. `points` : using `hasSamePoint()`
  2. Prints if given Points are inside Polygon
  3. Prints if all points in list are inside Polygon or not 
  4. Prints list of result for List of points if they are inside Polygon or not
-* Here `isPointInside(Point( ))`, `contains(x,y)`, `areAllPointsInsidePolygon_ListPoint()` & `getList_IsListOfPointInside()` are used.
+* Here `hasSamePoint()`, `isPointInside(Point( ))`, `contains(x,y)`, `areAllPointsInsidePolygon_ListPoint()` & `getList_IsListOfPointInside()` are used.
 
 ### [2. Example of Conversions `List <=> Point`, `List<Point> <=> List<List>` etc.](example/conversion.dart) 
 1. Example of `toPoint()` 
@@ -62,7 +63,7 @@ A library for checking if given point(s) is present inside Polygon or not.
     > type `int` is not a subtype of type `List<num>` in type cast
 * Passing `List` instead of `List<List>` but, without casting it : throws `TypeError` as shown below :
     > type `List<dynamic>` is not a subtype of type `List<List<num>>`
-* ****Note: currently casting `List<List<dynamic>>` to `List<List<num>>` gives following `CastError` exception:****
+* [****Note: currently casting `List<List<dynamic>>` to `List<List<num>>` gives following `CastError` exception:****](https://github.com/dart-lang/sdk/issues/36614 "Dart-lang List<List<dyanamic>> to List<List<num>> Casting Issue")
     * without `as List<List<num>>` - 
     > type `List<dynamic>` is not a subtype of type `List<num>` in type cast
     * with `as List<List<num>>` - 

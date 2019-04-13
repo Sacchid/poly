@@ -1,7 +1,6 @@
 import 'package:poly/poly.dart';
 
 main() {
-  //TODO while coping contains run dartfmt on ost code
   int correct_count = 0;
   int exception_count = 0;
 
@@ -34,7 +33,7 @@ main() {
 
   //  2. Passing `List` instead of `List<List>`
   //  * Passing `List` instead of `List<List>` & casting it : throws `CastError` as shown below :
-  //    * type 'int' is not a subtype of type 'List<num>' in type cast
+  //    * type `int` is not a subtype of type `List<num>` in type cast
   try {
     List wrongDynamicList = [1, 2];
     var wrongPoint = toListOfPoint(wrongDynamicList);
@@ -44,7 +43,7 @@ main() {
         "${++exception_count}. ${e.runtimeType} Exception handled : \n \t \u2022 ${e}");
   }
   //  * Passing `List` instead of `List<List>` but, without casting it : throws `TypeError` as shown below :
-  //    * type 'List<dynamic>' is not a subtype of type 'List<List<num>>'
+  //    * type `List<dynamic>` is not a subtype of type `List<List<num>>`
   try {
     List wrongDynamicList = [1, 2];
     var wrongPoint = toListOfPoint(wrongDynamicList.cast());
@@ -54,7 +53,7 @@ main() {
         "${++exception_count}. ${e.runtimeType} Exception handled : \n \t \u2022 ${e}");
   }
   //TODO - Check how to List to List<List> or add List as an element in List<List>
-  // type 'List<dynamic>' is not a subtype of type 'List<num>' in type cast
+  // type `List<dynamic>` is not a subtype of type `List<num>` in type cast
   try {
     var l = [correctDynamicList];
     print("${l.runtimeType}");
@@ -64,7 +63,7 @@ main() {
         "${++exception_count}. ${e.runtimeType} Exception handled : \n \t \u2022 ${e}");
   }
 
-  //type 'List<List<dynamic>>' is not a subtype of type 'List<List<num>>' in type cast
+  //type `List<List<dynamic>>` is not a subtype of type `List<List<num>>` in type cast
   try {
     var l = [correctDynamicList] as List<List<num>>;
     print("${l.runtimeType}");
