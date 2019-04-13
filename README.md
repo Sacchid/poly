@@ -56,7 +56,7 @@ A library for checking if given point(s) is present inside Polygon or not.
 1. Correct casting
     * casting `List<dynamic>` to `List<num>`
     * casting `List<dynamic>` to `List<List<num>>`
-   ``````
+ 
 2. Passing `List` instead of `List<List>`
 * Passing `List` instead of `List<List>` & casting it : throws `CastError` as shown below :
     > type `int` is not a subtype of type `List<num>` in type cast
@@ -112,11 +112,6 @@ A library for checking if given point(s) is present inside Polygon or not.
 4. `_CastError example` - casting `List<num>` to `List<List<num>`
 
 ### CSV
-1.[`IsInsideResultWithXY_ToCSVString`](####`IsInsideResultWithXY_ToCSVString`)
-
-2.[`csvToListOfList`](#### `csvToListOfList`)
-
-3.[`csvToPoly`](####`csvToPoly`)
 #### `IsInsideResultWithXY_ToCSVString`
 * Returns result of `ArePointsInside` as CSV String which can be later saved or displayed
 * Output CSV String will by default contain a header row - `latitude,longitude,isInside`
