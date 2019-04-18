@@ -23,7 +23,8 @@ main() {
 
   // * Using `toListListNum`
   List<List<num>> l = toListListNum([correctDynamicList]);
-  print("${++correct_count}. ${l} has type:${l.runtimeType} & has length:${l.length}");
+  print(
+      "${++correct_count}. ${l} has type:${l.runtimeType} & has length:${l.length}");
 
   //  Without casting `List<dynamic>` to `List<num>` `TypeError`is thrown as shown below :
   try {
@@ -80,7 +81,10 @@ main() {
   // * Using from
   // > type `List<dynamic>` is not a subtype of type `List<num>`
   try {
-    var l = List<List<num>>.from([correctDynamicList].toList() as List<List<num>>).cast().toList();
+    var l =
+        List<List<num>>.from([correctDynamicList].toList() as List<List<num>>)
+            .cast()
+            .toList();
     print("${l.runtimeType}");
     List<Point> wrongListOfList = toListOfPoint(l.cast());
   } on TypeError catch (e) {
@@ -90,5 +94,4 @@ main() {
     print(
         "${++exception_count}. ${e.runtimeType} Exception handled : \n \t \u2022 ${e}");
   }
-
 }

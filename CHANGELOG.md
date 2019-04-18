@@ -14,8 +14,12 @@ Added following functions & examples for -
 * [Easy Casting](example/easy_casting.dart)
 * [Simple CSV](example/simple_csv.dart)
 * [Conversion](example/conversion.dart)
+
 ## 1.0.4
 - Optimized imports
 - Added `Polygon.hasSamePoint()`
 - [Issue raised for `List<List<dyanamic>>` to `List<List<num>>` casting exception](https://github.com/dart-lang/sdk/issues/36614 "Dart-lang List<List<dyanamic>> to List<List<num>> Casting Issue")
 
+### 1.0.5
+- Added `toListNum()` along with [examples](example/using_to.dart)
+- Added `toListListNum()` along with [examples](example/using_to.dart)

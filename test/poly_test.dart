@@ -1,6 +1,5 @@
 //import 'package:poly/poly.dart';
 
-
 import "package:test/test.dart";
 
 void main() {
@@ -12,11 +11,8 @@ void main() {
 
     test(".trim complex", () {
       var string = "foo,bar,baz ";
-      expect(string.trim(),allOf([
-        contains("foo"),
-        isNot(startsWith("bar")),
-        endsWith("baz")
-    ]));
+      expect(string.trim(),
+          allOf([contains("foo"), isNot(startsWith("bar")), endsWith("baz")]));
     });
 
     test(".trim() removes surrounding whitespace", () {

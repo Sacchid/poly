@@ -100,6 +100,155 @@ Polygon toPolyFromListOfList(List<List<num>> list_of_list) {
   return Polygon(_list_of_point);
 }
 
+/// Returns `List<num>` from a `List<dynamic>`
+/// * Can be used with [toPoly] as it accepts `List<num>`
+/// * Optional Parameters -
+///   * `sizeTwo`
+///     - Default value `true`
+///     - When set `false`, `Output List` can have more than 2 elements
+///   * `replaceWithZero`
+///     - Default value `false`
+///     - When set `true`, elements with type `String` or `bool` will be replaced with 0, rather than being removed
+///   * `reverseIt`
+///     - Default value `false`
+///     - When set `true`, `List` will be reversed
+List<num> toListNum(List _inputList,
+    {bool reverseIt = false,
+    bool replaceWithZero = false,
+    bool sizeTwo = true}) {
+  var _list = []..addAll(_inputList);
+  int lengthOfPoints = _list.length;
+  if (replaceWithZero) {
+    //print("${lengthOfPoints}");
+    if (sizeTwo) {
+      if (lengthOfPoints < 2) {
+        _list = [0, 0];
+      }
+      var x = _list[0];
+      var y = _list[1];
+      //print(x.runtimeType);
+      if (((x.runtimeType == String) || (x.runtimeType == bool)) &&
+          ((y.runtimeType == String) || (y.runtimeType == bool))) {
+        _list = [0, 0];
+      } else if ((x.runtimeType == String) || (x.runtimeType == bool)) {
+        _list = [0, y];
+      } else if ((y.runtimeType == String) || (y.runtimeType == bool)) {
+        _list = [x, 0];
+      }
+    } else {
+      for (int _i = 0; _i < lengthOfPoints; _i++) {
+        var element = _list[_i];
+        if ((element.runtimeType == String) || (element.runtimeType == bool)) {
+          _list[_i] = 0;
+        }
+      }
+    }
+  } else {
+    _list.removeWhere(
+        (_i) => (((_i.runtimeType == String) || (_i.runtimeType == bool))));
+  }
+
+  lengthOfPoints = sizeTwo ? 2 : _list.length;
+
+  //print("${lengthOfPoints}");
+  List<num> numList = [];
+  if (reverseIt) {
+    for (int _i = lengthOfPoints - 1; _i >= 0; _i--) {
+      var x = _list[_i];
+      //print(x.runtimeType);
+      numList.add(x);
+    }
+  } else {
+    for (int _i = 0; _i < lengthOfPoints; _i++) {
+      var x = _list[_i];
+      //print(x.runtimeType);
+      numList.add(x);
+    }
+  }
+  return numList;
+}
+
+/// Returns `List<List<num>>` from a `List<List<dynamic>>`
+/// * Can be used with functions like [areAllPointsInsidePolygon_List] , [getList_IsListOfListInside] , [toPolyFromListOfList] , [toListOfPoint]  which accepts `List<List<num>>`
+/// * Optional Parameters -
+///   * `replaceWithZero`
+///     - Default value `false`
+///     - When set `true`, elements with type `String` or `bool` will be replaced with 0, rather than being removed
+///   * `swapXAndY`
+///     - Default value `false`
+///     - When set `true`, `xi` will be swapped with `yi`
+///       - i.e. `[ [x1,y1], [x2,y2], ...]` -> `[ [y1,x1], [y2,x2], ...]`
+List<List<num>> toListListNum(List _inputListOfList,
+    {bool swapXAndY = false, bool replaceWithZero = false}) {
+  var _listOfList = []..addAll(_inputListOfList);
+  if (_listOfList[0][0].runtimeType == String) {
+    swapXAndY = swapXAndY
+        ? swapXAndY
+        : ((_listOfList[0][0] == "longitude" || _listOfList[0][0] == "y")
+            ? true
+            : false);
+    //_listOfList.removeAt(0);
+  }
+  int lengthOfPoints = _listOfList.length;
+  //print("Before: ${lengthOfPoints}");
+  if (replaceWithZero) {
+    //print("${lengthOfPoints}");
+    for (int _i = 0; _i < lengthOfPoints; _i++) {
+      var x = _listOfList[_i][0];
+      var y = _listOfList[_i][1];
+      //print(x.runtimeType);
+      if (((x.runtimeType == String) || (x.runtimeType == bool)) &&
+          ((y.runtimeType == String) || (y.runtimeType == bool))) {
+        _listOfList[_i] = [0, 0];
+      } else if ((x.runtimeType == String) || (x.runtimeType == bool)) {
+        _listOfList[_i] = [0, y];
+      } else if ((y.runtimeType == String) || (y.runtimeType == bool)) {
+        _listOfList[_i] = [x, 0];
+      }
+      // print("${lengthOfPoints}");
+    }
+  } else {
+    _listOfList.removeWhere((_i) =>
+        (((_i[0].runtimeType == String) || (_i[0].runtimeType == bool)) ||
+            ((_i[1].runtimeType == String) || (_i[1].runtimeType == bool))));
+  }
+  lengthOfPoints = _listOfList.length;
+  List<List<num>> numList = [];
+
+  if (swapXAndY) {
+    for (int _i = 0; _i < lengthOfPoints; _i++) {
+      var x = _listOfList[_i][0];
+      var y = _listOfList[_i][1];
+      numList.add([y, x]);
+      //print(x.runtimeType);
+//      if ((x.runtimeType == String) || (y.runtimeType == String) ) {
+//        _listOfList.removeAt(_i);
+//        --lengthOfPoints;
+//      }
+//      else{
+//        numList.add([y, x]);
+//      }
+    }
+  } else {
+    //print("lengthOfPoints:${lengthOfPoints}");
+    for (int _i = 0; _i < lengthOfPoints; _i++) {
+      // print("_i:${_i}");
+      var y = _listOfList[_i][1];
+      var x = _listOfList[_i][0];
+      numList.add([x, y]);
+      //print(x.runtimeType);
+//      if ((x.runtimeType == String) || (y.runtimeType == String) ) {
+//        _listOfList.removeAt(_i);
+//        --lengthOfPoints;
+//      }
+//      else{
+//        numList.add([x, y]);
+//      }
+    }
+  }
+  return numList;
+}
+
 //import 'package:json_serializable/json_serializable.dart';
 // TODO: Add json support ??
 // TODO: Polygon Name ??
@@ -148,7 +297,7 @@ class Polygon {
   }
 
   /// Checks if 2 `Polygon` have same vertices i.e. `points`
-  bool hasSamePoint(Polygon anotherPolygon) {
+  bool hasSamePoints(Polygon anotherPolygon) {
     bool same = (points.length == anotherPolygon.points.length);
     if (!same) {
       return false;
@@ -338,104 +487,6 @@ Future<Polygon> csvToPoly(var csvString, {bool isReversed = false}) async {
   return _out;
 }
 
-List<num> toListNum(List _inputList, {bool toReverse = false}) {
-  var _list = []..addAll(_inputList);
-  List<num> numList = [];
-  int lengthOfPoints = _list.length;
-  if (toReverse) {
-    for (int _i = lengthOfPoints - 1; _i >= 0; _i--) {
-      var x = _list[_i];
-      //print(x.runtimeType);
-      if (_list[_i].runtimeType == String) {
-        _list.removeAt(_i);
-      } else {
-        numList.add(x);
-      }
-    }
-  } else {
-    for (int _i = 0; _i < lengthOfPoints; _i++) {
-      var x = _list[_i];
-      //print(x.runtimeType);
-      if (_list[_i].runtimeType == String) {
-        _list.removeAt(_i);
-      } else {
-        numList.add(x);
-      }
-    }
-  }
-  return numList;
-}
-
-List<List<num>> toListListNum(List _inputListOfList,
-    {bool swapXAndY = false, bool replaceWithZero = false}) {
-  var _listOfList = []..addAll(_inputListOfList);
-  if (_listOfList[0][0].runtimeType == String) {
-    swapXAndY = swapXAndY
-        ? swapXAndY
-        : ((_listOfList[0][0] == "longitude" || _listOfList[0][0] == "y")
-            ? true
-            : false);
-    //_listOfList.removeAt(0);
-  }
-  int lengthOfPoints = _listOfList.length;
-  //print("Before: ${lengthOfPoints}");
-  if (replaceWithZero) {
-    //print("${lengthOfPoints}");
-    for (int _i = 0; _i < lengthOfPoints; _i++) {
-      var x = _listOfList[_i][0];
-      var y = _listOfList[_i][1];
-      //print(x.runtimeType);
-      if (((x.runtimeType == String) || (x.runtimeType == bool)) &&
-          ((y.runtimeType == String) || (y.runtimeType == bool))) {
-        _listOfList[_i] = [0, 0];
-      } else if ((x.runtimeType == String) || (x.runtimeType == bool)) {
-        _listOfList[_i] = [0, y];
-      } else if ((y.runtimeType == String) || (y.runtimeType == bool)) {
-        _listOfList[_i] = [x, 0];
-      }
-      // print("${lengthOfPoints}");
-    }
-  } else {
-    _listOfList.removeWhere((_i) =>
-        (((_i[0].runtimeType == String) || (_i[0].runtimeType == bool)) ||
-            ((_i[1].runtimeType == String) || (_i[1].runtimeType == bool))));
-  }
-  lengthOfPoints = _listOfList.length;
-  List<List<num>> numList = [];
-
-  if (swapXAndY) {
-    for (int _i = 0; _i < lengthOfPoints; _i++) {
-      var x = _listOfList[_i][0];
-      var y = _listOfList[_i][1];
-      numList.add([y, x]);
-      //print(x.runtimeType);
-//      if ((x.runtimeType == String) || (y.runtimeType == String) ) {
-//        _listOfList.removeAt(_i);
-//        --lengthOfPoints;
-//      }
-//      else{
-//        numList.add([y, x]);
-//      }
-    }
-  } else {
-    //print("lengthOfPoints:${lengthOfPoints}");
-    for (int _i = 0; _i < lengthOfPoints; _i++) {
-      // print("_i:${_i}");
-      var y = _listOfList[_i][1];
-      var x = _listOfList[_i][0];
-      numList.add([x, y]);
-      //print(x.runtimeType);
-//      if ((x.runtimeType == String) || (y.runtimeType == String) ) {
-//        _listOfList.removeAt(_i);
-//        --lengthOfPoints;
-//      }
-//      else{
-//        numList.add([x, y]);
-//      }
-    }
-  }
-  return numList;
-}
 //Future<Polygon> csvToPoly_casting_issue(var input, {bool isReversed = false}) async {
 //  List<List<num>> fields = await input
 //      .transform(utf8.decoder)

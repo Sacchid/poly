@@ -9,7 +9,7 @@ A library for checking if given point(s) is present inside Polygon or not.
  4. Prints list of result for List of points if they are inside Polygon or not
 * Here `hasSamePoint()`, `isPointInside(Point( ))`, `contains(x,y)`, `areAllPointsInsidePolygon_ListPoint()` & `getList_IsListOfPointInside()` are used.
 
-### [2. Example of Conversions `List <=> Point`, `List<Point> <=> List<List>` etc.](example/conversion.dart) 
+### [2. Example of Conversions `List <=> Point`, `List<Point> <=> List<List>` & other](example/conversion.dart) 
 1. Example of `toPoint()` 
    * `toPoint()` converts `List<num>` to `Point<num>`
 2. Example of `toListOfPoint()`
@@ -19,7 +19,24 @@ A library for checking if given point(s) is present inside Polygon or not.
    * Print status of List of List if they are inside our Polygon using `getList_IsListOfListInside`
    * Print if All points in List of List inside Polygon using
 
-### [3. Exception Handling Example](example/exception_handling.dart)
+
+### [3. Examples of `List<dynamic>` => `List<num>` and `List<List<dynamic>>` => `List<List<num>>`](example/using_to.dart)
+* `toListNum()` returns `List<num>` from a `List<dynamic>`
+*  `toListListNum()` returns `List<List<num>>` from a `List<List<dynamic>>`
+
+1. Examples of `toListNum()` 
+- without any optional parameters
+- with `replaceWithZero: true` and `sizeTwo: false`
+- with `sizeTwo: false`
+
+2. Examples of `toListListNum()` 
+- without any optional parameters
+- with `swapXAndY: true`
+- with `replaceWithZero: true`
+- with `replaceWithZero: true` and `swapXAndY: true`
+
+
+### [4. Exception Handling Example](example/exception_handling.dart)
 * It contains examples of following exceptions & errors -
 1. `NeedsAtLeastThreePoints` is thrown if `Polygon.points` contains less than 3 points
 2. `WrongSizeForPoint` is thrown if `toPoint()` has more or less than 2 element. Point has only x and y.
@@ -29,7 +46,9 @@ A library for checking if given point(s) is present inside Polygon or not.
       * Here, [1,2] has a type `List<dynamic>`
       * So, use `[1,2].cast<num>()`
 4. `CastError example` - wrongly casting `List<num>` to `List<List<num>`
-### [4. Simple CSV example ](example/simple_csv.dart)
+
+
+### [5. Simple CSV example ](example/simple_csv.dart)
 * It contains examples of following functions - 
 1. Example of `IsInsideResultWithXY_ToCSVString` 
    * Saving `ArePointsInside Results` to "IsInside.csv"
@@ -52,7 +71,7 @@ A library for checking if given point(s) is present inside Polygon or not.
 4. Example of `csvToPoly`
     * Check if Point(18.507305, 73.806131) is inside Polygon readPolygon (Polygon from Polygon.csv)
 
-### [5. Easy Casting Example](example/easy_casting.dart)
+### [6. Easy Casting Example](example/easy_casting.dart)
 * Without casting `List<dynamic>` to `List<num>` `TypeError`is thrown
 1. Correct casting
     * casting `List<dynamic>` to `List<num>`
@@ -74,17 +93,44 @@ A library for checking if given point(s) is present inside Polygon or not.
 ## Function List
 
 ### Conversion Type
-##### `List<num>` to `Point(x,y)`
+##### `List<num>` to `Point(x,y)` : use `toPoint()`
 * i.e. `[x,y]`  ->  `Point(x,y)`
 * Point can be created passing `List<num>` `toPoint()`.
 * List must have exact 2 elements, else will throw `WrongSizeForPoint` exception
-##### `List<List<num>>` to `List<Point<num>>`
+
+##### `List<List<num>>` to `List<Point<num>>` : use `toListOfPoint()`
 * i.e. `[ [x1,y1],[x2,y2],... ]`  ->  `[ Point(x1,y1), Point(x2,y2),... ]`
 * List of Points can be created from `List<List<num>>` by passing it to `toListOfPoint()`
-##### `List<List<num>>` to `Polygon`
+
+##### `List<List<num>>` to `Polygon` : use `toPolyFromListOfList()`
 * i.e. `[ [x1,y1],[x2,y2],... ]`  ->  `Polygon( Point(x1,y1), Point(x2,y2),... )`
 * Polygon can be returned from `List<List<num>>` by passing it to `toPolyFromListOfList`
-
+ 
+##### `List<dynamic>` to `List<num>` : use `toListNum()`
+ * Returns `List<num>` from a `List<dynamic>`
+ * Can be used with [toPoly] as it accepts `List<num>`
+ * Optional Parameters -
+   * `sizeTwo`
+     - Default value `true`
+     - When set `false`, `Output List` can have more than 2 elements
+   * `replaceWithZero`
+     - Default value `false`
+     - When set `true`, elements with type `String` or `bool` will be replaced with 0, rather than being removed
+   * `reverseIt`
+     - Default value `false`
+     - When set `true`, `List` will be reversed
+     
+##### `List<List<dynamic>>` to `List<List<num>>` : use `toListListNum()`
+ * Returns `List<List<num>>` from a `List<List<dynamic>>`
+ * Can be used with functions like [areAllPointsInsidePolygon_List] , [getList_IsListOfListInside] , [toPolyFromListOfList] , [toListOfPoint]  which accepts `List<List<num>>`
+ * Optional Parameters -
+   * `replaceWithZero`
+     - Default value `false`
+     - When set `true`, elements with type `String` or `bool` will be replaced with 0, rather than being removed
+   * `swapXAndY`
+     - Default value `false`
+     - When set `true`, `xi` will be swapped with `yi` 
+       - i.e. `[ [x1,y1], [x2,y2], ...]` -> `[ [y1,x1], [y2,x2], ...]`
 
 ### is Point(s) inside
 ##### Check if Single `Point` is inside
@@ -93,7 +139,6 @@ A library for checking if given point(s) is present inside Polygon or not.
   ###### Get Status by passing `Point(x,y)` to `isPointInside`
   * returns `true` if `Point` is present inside `Polygon`
   
-  
 ##### Check if Multiple Points are inside given Polygon
  ###### Get Status of each Point
 * `getList_IsListOfListInside(List<List<num>>)` returns `List<bool>` 
@@ -101,6 +146,9 @@ A library for checking if given point(s) is present inside Polygon or not.
  ###### Check if all given Points are inside given Polygon
 * `areAllPointsInsidePolygon_List((List<List<num>>)` returns `true` or `false`
 * `areAllPointsInsidePolygon_ListPoint(List<Point<num>>)` returns `true` or `false`
+
+### Checks if 2 `Polygon` have same vertices i.e. `points`
+* use `hasSamePoints()`
 
 ### Exceptions
 1. `NeedsAtLeastThreePoints` is thrown if `Polygon.points` contains less than 3 points

@@ -28,7 +28,7 @@ main() {
   /// *Checks if 2 `Polygon` have same vertices i.e. `points`
   // * Should print `true`
   print(
-      "${++example_count}. `testPolygon` and `copyOfFirstPolygon` are same : ${testPolygon.hasSamePoint(copyOfFirstPolygon)}");
+      "${++example_count}. `testPolygon` and `copyOfFirstPolygon` are same : ${testPolygon.hasSamePoints(copyOfFirstPolygon)}");
 
   /// A Point can be checked if it's present inside the Polygon by passing [Point i] to isPointInside function
   // Should Print true
