@@ -2,7 +2,7 @@
 
 library poly;
 
-export 'dart:math';
+export 'dart:math' show Point;
 
 import 'dart:math' show Point;
 import 'package:csv/csv.dart';
