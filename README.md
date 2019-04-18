@@ -87,7 +87,10 @@ A library for checking if given point(s) is present inside Polygon or not.
     > type `List<dynamic>` is not a subtype of type `List<num>` in type cast
     * with `as List<List<num>>` - 
     > type `List<List<dynamic>>` is not a subtype of type `List<List<num>>` in type cast
-        
+
+## Note: Instead of casting, use `toListNum()` & `toListListNum()`
+* Use `toListNum()` for `List<dynamic>` => `List<num>`
+* Use `toListListNum()` for`List<List<dynamic>>` => `List<List<num>>`    
         
 
 ## Function List
