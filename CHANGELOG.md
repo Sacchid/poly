@@ -23,3 +23,7 @@ Added following functions & examples for -
 ### 1.0.5
 - Added `toListNum()` along with [examples](example/using_to.dart)
 - Added `toListListNum()` along with [examples](example/using_to.dart)
+
+### 1.0.6
+- Updated documentation
+- Added Travis CI - [![build status](https://travis-ci.org/Sacchid/poly.svg)](https://travis-ci.org/Sacchid/poly#)
