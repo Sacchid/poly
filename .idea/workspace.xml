@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d89d7da-124c-49bb-9edc-27f68f0848d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/poly.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/poly.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,8 +55,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/poly.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+            <state relative-caret-position="246">
+              <caret line="259" column="3" selection-start-line="259" selection-start-column="3" selection-end-line="259" selection-end-column="3" />
+              <folding>
+                <element signature="e#85#115#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/Program Files/Dart/dart-sdk/lib/math/point.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="23" column="55" lean-forward="true" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -74,8 +86,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="215">
-                <caret line="91" column="5" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+              <first_editor relative-caret-position="340">
+                <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
               </first_editor>
               <second_editor />
             </state>
@@ -154,7 +166,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="40" />
     <option name="width" value="683" />
     <option name="height" value="728" />
@@ -246,7 +258,7 @@
       <workItem from="1555518623192" duration="5305000" />
       <workItem from="1555590115891" duration="4727000" />
       <workItem from="1555595859639" duration="100000" />
-      <workItem from="1555596016706" duration="314000" />
+      <workItem from="1555596016706" duration="3689000" />
     </task>
     <task id="LOCAL-00001" summary="v 1.0.0">
       <created>1554207026692</created>
@@ -259,7 +271,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152433000" />
+    <option name="totallyTimeSpent" value="155808000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -298,7 +310,7 @@
       <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.82487726" />
       <window_info anchor="bottom" x="6" y="14" width="1360" height="699" id="Terminal" order="14" weight="0.87561375" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Flutter Outline" order="1" weight="0.32980332" />
+      <window_info anchor="right" id="Flutter Outline" order="1" weight="0.4130106" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="right" id="Palette" order="4" />
@@ -401,16 +413,6 @@
         <state relative-caret-position="-366" />
       </provider>
     </entry>
-    <entry file="file://C:/Program Files/Dart/dart-sdk/lib/math/math.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#6531#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Program Files/Dart/dart-sdk/lib/math/random.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -498,13 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files/Dart/dart-sdk/lib/math/point.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/poly_test.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -568,13 +563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/poly.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -582,11 +570,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Program Files/Dart/dart-sdk/lib/math/jenkins_smi_hash.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#1325#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Dart/dart-sdk/lib/math/math.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#6531#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Dart/dart-sdk/lib/math/point.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="23" column="55" lean-forward="true" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/poly.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="259" column="3" selection-start-line="259" selection-start-column="3" selection-end-line="259" selection-end-column="3" />
+          <folding>
+            <element signature="e#85#115#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="215">
-            <caret line="91" column="5" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+          <first_editor relative-caret-position="340">
+            <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
           </first_editor>
           <second_editor />
         </state>

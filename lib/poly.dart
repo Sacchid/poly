@@ -257,6 +257,7 @@ List<List<num>> toListListNum(List _inputListOfList,
 class Polygon {
   final List<Point<num>> points;
   String name;
+ // double version;
 
   ///Create a `Polygon` with vertices at `points`.
   /// Pass a `List<Point<num>>`

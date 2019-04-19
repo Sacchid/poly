@@ -1,4 +1,22 @@
+# poly
+[![Pub](https://img.shields.io/pub/v/poly.svg)](https://pub.dartlang.org/packages/poly)
+
 A library for checking if given point(s) is present inside Polygon or not.
+
+### Contents
+
+*   [Examples](#usage)
+*   [Installation](#installation)
+*   [Function List](#Function List)
+
+# Installation
+
+[To install poly for your Dart project, simply add poly to your
+pub dependencies.](https://pub.dartlang.org/packages/poly#-installing-tab-)
+
+    dependencies:
+        poly^ 1.0.5
+
 
 ## Usage
 ### [1. A  very simple usage example ](example/poly_example.dart "Basic example")
