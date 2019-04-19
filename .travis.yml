@@ -3,7 +3,7 @@ dart:
   # Install the latest stable release
   - stable
 dart_task:
-  - dartfmt: true
+  - dartfmt: false
   - dartanalyzer: true
   - test: --platform vm
 os:
