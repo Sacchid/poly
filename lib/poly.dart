@@ -12,7 +12,8 @@ import 'package:collection/collection.dart' as checkList
 
 // Appends 2 or 3 Strings - DO not use - problem
 
-//TODO - open issue on dart-lang : casting doesn't work - Check with dartpad & for List<num>
+// TO DO - open issue on dart-lang : casting doesn't work - Check with dartpad & for List<num>
+// Done
 // for `List<List<num>> c3 = listAppend(c2, [[7,8]].cast() );`
 // Getting following exception
 // Unhandled exception:
@@ -34,7 +35,7 @@ List listAppend(List one, List two) {
 //      : [one, two, three].expand((x) => x).toList();
 //  return _appendedList;
 //}
-//TODO - Add YX to XY
+//TO DO - Add YX to XY - done in list
 //TODO - kml support
 ///* `NeedsAtLeastThreePoints` is thrown if `Polygon.points` contains less than 3 points
 class NeedsAtLeastThreePoints implements Exception {
@@ -75,7 +76,7 @@ Point toPoint(List<num> list_of_xy) {
 //    return Point(x,y);
 }
 
-//TODO - Add a check to see if it's List<List<num>> or just List if it's casted
+//TODO - Add a check to see if it's List<List<num>> or just List if it's casted ? 
 /// `List<List (x,y)>` to `List<Point>`
 List<Point<num>> toListOfPoint(List<List<num>> list_of_list) {
   List<Point<num>> _out_list_of_point = [];

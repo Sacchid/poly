@@ -57,7 +57,6 @@ main() {
     print(
         "${++exception_count}. ${e.runtimeType} Exception handled : \n \t \u2022 ${e}");
   }
-  //TODO - Check how to List to List<List> or add List as an element in List<List>
   // type `List<dynamic>` is not a subtype of type `List<num>` in type cast
   try {
     var l = [correctDynamicList];
