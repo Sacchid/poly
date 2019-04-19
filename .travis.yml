@@ -8,5 +8,5 @@ dart_task:
   - test: --platform vm
 os:
   - linux
-  - osx
+#  - osx
   - windows

@@ -1,5 +1,6 @@
 # poly
 [![Pub](https://img.shields.io/pub/v/poly.svg)](https://pub.dartlang.org/packages/poly)
+[![build status](https://travis-ci.org/Sacchid/poly.svg)](https://travis-ci.org/Sacchid/poly#)
 
 A library for checking if given point(s) is present inside Polygon or not.
 

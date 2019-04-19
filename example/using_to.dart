@@ -15,7 +15,6 @@ main() {
 
   print(
       "\u2022 Old List:${correctDynamicList} has type:${correctDynamicList.runtimeType} & has length:${correctDynamicList.length}");
-
   // * Example of `toListNum` without any optional parameters
   List<num> l = toListNum(correctDynamicList);
   print(
@@ -55,4 +54,5 @@ main() {
       toListListNum(listOf, replaceWithZero: true, swapXAndY: true);
   print(
       "${++correct_count}. Using `toListListNum` with `replaceWithZero: true` and `swapXAndY: true`,${mZeroSwap} has type:${mZeroSwap.runtimeType} & has length:${mZeroSwap.length}");
+
 }
