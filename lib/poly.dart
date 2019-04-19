@@ -76,7 +76,7 @@ Point toPoint(List<num> list_of_xy) {
 //    return Point(x,y);
 }
 
-//TODO - Add a check to see if it's List<List<num>> or just List if it's casted ? 
+//TODO - Add a check to see if it's List<List<num>> or just List if it's casted ?
 /// `List<List (x,y)>` to `List<Point>`
 List<Point<num>> toListOfPoint(List<List<num>> list_of_list) {
   List<Point<num>> _out_list_of_point = [];
@@ -258,7 +258,7 @@ List<List<num>> toListListNum(List _inputListOfList,
 class Polygon {
   final List<Point<num>> points;
   String name;
- // double version;
+  // double version;
 
   ///Create a `Polygon` with vertices at `points`.
   /// Pass a `List<Point<num>>`

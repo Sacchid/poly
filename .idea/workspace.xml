@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d89d7da-124c-49bb-9edc-27f68f0848d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/example/easy_casting.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/easy_casting.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/simple_csv.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/simple_csv.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/poly.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/poly.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -32,18 +32,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="357">
-                <caret line="21" selection-start-line="21" selection-end-line="21" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pubspec.yaml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
@@ -52,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/poly.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="96">
-              <caret line="78" column="82" selection-start-line="78" selection-start-column="82" selection-end-line="78" selection-end-column="82" />
+              <caret line="78" column="81" selection-start-line="78" selection-start-column="81" selection-end-line="78" selection-end-column="81" />
               <folding>
                 <element signature="e#85#115#0" expanded="true" />
               </folding>
@@ -91,6 +79,36 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/example/prabhag11.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/poly_example.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/exception_handling.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -117,8 +135,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/conversion.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+            <state relative-caret-position="170">
+              <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -174,7 +192,6 @@
         <option value="$PROJECT_DIR$/example/to_point_check.dart" />
         <option value="$PROJECT_DIR$/lib/src/poly_base.dart" />
         <option value="$PROJECT_DIR$/TODO.md" />
-        <option value="$PROJECT_DIR$/example/prabhag11.dart" />
         <option value="$PROJECT_DIR$/example/casting.dart" />
         <option value="$PROJECT_DIR$/example/conversion.dart" />
         <option value="$PROJECT_DIR$/example/simple_csv.dart" />
@@ -186,6 +203,7 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/example/easy_casting.dart" />
         <option value="$PROJECT_DIR$/lib/poly.dart" />
+        <option value="$PROJECT_DIR$/example/prabhag11.dart" />
       </list>
     </option>
   </component>
@@ -287,7 +305,7 @@
       <workItem from="1555518623192" duration="5305000" />
       <workItem from="1555590115891" duration="4727000" />
       <workItem from="1555595859639" duration="100000" />
-      <workItem from="1555596016706" duration="6541000" />
+      <workItem from="1555596016706" duration="6756000" />
     </task>
     <task id="LOCAL-00001" summary="v 1.0.0">
       <created>1554207026692</created>
@@ -300,7 +318,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158660000" />
+    <option name="totallyTimeSpent" value="158875000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -315,7 +333,7 @@
     <frame x="-8" y="32" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.17473525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17473525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -509,16 +527,6 @@
       </provider>
       <provider selected="true" editor-type-id="csv-text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/prabhag11.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example/out1.csv">
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
@@ -542,22 +550,7 @@
           <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
-            <marker date="1555085682547" expanded="true" signature="6629:6806" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/poly_example.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="30" column="91" selection-start-line="30" selection-start-column="91" selection-end-line="30" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/exception_handling.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -568,13 +561,6 @@
             <caret line="21" selection-start-line="21" selection-end-line="21" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/using_to.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -611,13 +597,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/conversion.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -639,6 +618,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/poly.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="78" column="81" selection-start-line="78" selection-start-column="81" selection-end-line="78" selection-end-column="81" />
+          <folding>
+            <element signature="e#85#115#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/using_to.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/poly_example.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/exception_handling.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/example/easy_casting.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="79">
@@ -646,12 +656,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/poly.dart">
+    <entry file="file://$PROJECT_DIR$/example/conversion.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="78" column="82" selection-start-line="78" selection-start-column="82" selection-end-line="78" selection-end-column="82" />
+        <state relative-caret-position="170">
+          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/prabhag11.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
           <folding>
-            <element signature="e#85#115#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
