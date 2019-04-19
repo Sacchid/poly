@@ -1,0 +1,12 @@
+language: dart
+dart:
+  # Install the latest stable release
+  - stable
+dart_task:
+  - dartfmt: true
+  - dartanalyzer: true
+  - test: --platform vm
+os:
+  - linux
+  - osx
+  - windows
