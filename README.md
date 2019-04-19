@@ -12,7 +12,7 @@ A library for checking if given point(s) is present inside Polygon or not.
 # Installation
 
 [To install poly for your Dart project, simply add poly to your
-pub dependencies.](https://pub.dartlang.org/packages/poly#-installing-tab-)
+pub dependencies.](https://pub.dartlang.org/packages/poly#-installing-tab- "installing poly from pub.dartlang")
 
     dependencies:
         poly^ 1.0.5
@@ -111,7 +111,7 @@ pub dependencies.](https://pub.dartlang.org/packages/poly#-installing-tab-)
 * Use `toListListNum()` for`List<List<dynamic>>` => `List<List<num>>`    
         
 
-## Function List
+# Function List
 
 ### Conversion Type
 ##### `List<num>` to `Point(x,y)` : use `toPoint()`
