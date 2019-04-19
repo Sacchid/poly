@@ -4,10 +4,41 @@
 A library for checking if given point(s) is present inside Polygon or not.
 
 ### Contents
-
-*   [Examples](#usage)
 *   [Installation](#installation)
-*   [Function List](#Function List)
+*   [Examples](#examples)
+    - [1. A  very simple usage example ](#1-a--very-simple-usage-example-examplepoly_exampledart-basic-example)
+    - [2. Example of Conversions : `List <=> Point`, `List<Point> <=> List<List>` & other](#2-example-of-conversions-list--point-listpoint--listlist--otherexampleconversiondart)
+    - [3. Examples of `List<dynamic>` => `List<num>` and `List<List<dynamic>>` => `List<List<num>>`](#3-examples-of-listdynamic--listnum-and-listlistdynamic--listlistnumexampleusing_todart)
+    - [4. Simple CSV example](#4-simple-csv-example-examplesimple_csvdart)
+    - [5. Exception Handling Example](#5-exception-handling-exampleexampleexception_handlingdart)
+    - [6. Easy Casting Example](#6-easy-casting-exampleexampleeasy_castingdart)
+*   [Note: Instead of casting, use `toListNum()` & `toListListNum()`](#note-instead-of-casting-use-tolistnum--tolistlistnum)
+*   [Function List](#function-list)
+    - [Conversion Type ](#conversion-type)
+        1. [`toPoint()`](#listnum-to-pointxy--use-topoint)
+        2. [`toListOfPoint()`](#listlistnum-to-listpointnum--use-tolistofpoint)
+        3. [`toPolyFromListOfList()`](#listlistnum-to-polygon--use-topolyfromlistoflist)
+        4. [`toListNum()`](#listdynamic-to-listnum--use-tolistnum)
+        5. [`toListListNum()`](#listlistdynamic-to-listlistnum--use-tolistlistnum)
+    
+    - [is Point(s) inside](#is-points-inside)
+        1. [Check if Single `Point` is inside](#check-if-single-point-is-inside)
+            * [Get Status by passing `x` and `y` to `contains`](#get-status-by-passing-x-and-y-to-contains)
+            * [Get Status by passing `Point(x,y)` to `isPointInside`](#get-status-by-passing-pointxy-to-ispointinside)
+        
+        2. [Check if Multiple Points are inside given Polygon](#check-if-multiple-points-are-inside-given-polygon)
+            * [Get Status of each Point](#get-status-of-each-point)
+            * [Check if all given Points are inside given Polygon](#check-if-all-given-points-are-inside-given-polygon)
+   
+    - [Checks if 2 `Polygon` have same vertices i.e. `points`](#checks-if-2-polygon-have-same-vertices-ie-points)
+    
+    - [CSV](#csv)
+        * [`Get result(s) along with lat, lang as a CSV String : IsInsideResultWithXY_ToCSVString()`](#get-results-along-with-lat-lang-as-a-csv-string--isinsideresultwithxy_tocsvstring)
+        * [`Get `Polygon` as CSV String : toCSVString()`](#get-polygon-as-csv-string--tocsvstring)
+        * [`Get `Future<Polygon>` based on `csvString` : csvToPoly()`](#get-futurepolygon-based-on-csvstring--csvtopoly)
+        * [`csvToListOfList()`](#csvtolistoflist)
+
+* [Exceptions](#exceptions)
 
 # Installation
 
@@ -18,7 +49,7 @@ pub dependencies.](https://pub.dartlang.org/packages/poly#-installing-tab- "inst
         poly^ 1.0.5
 
 
-## Usage
+## Examples
 ### [1. A  very simple usage example ](example/poly_example.dart "Basic example")
  1. Creates 2 Polygons from `List<Point>`
  2. Checks if 2 `Polygon` have same vertices i.e. `points` : using `hasSamePoint()`
@@ -41,32 +72,17 @@ pub dependencies.](https://pub.dartlang.org/packages/poly#-installing-tab- "inst
 ### [3. Examples of `List<dynamic>` => `List<num>` and `List<List<dynamic>>` => `List<List<num>>`](example/using_to.dart)
 * `toListNum()` returns `List<num>` from a `List<dynamic>`
 *  `toListListNum()` returns `List<List<num>>` from a `List<List<dynamic>>`
-
 1. Examples of `toListNum()` 
-- without any optional parameters
-- with `replaceWithZero: true` and `sizeTwo: false`
-- with `sizeTwo: false`
-
+    - without any optional parameters
+    - with `replaceWithZero: true` and `sizeTwo: false`
+    - with `sizeTwo: false`
 2. Examples of `toListListNum()` 
-- without any optional parameters
-- with `swapXAndY: true`
-- with `replaceWithZero: true`
-- with `replaceWithZero: true` and `swapXAndY: true`
+    - without any optional parameters
+    - with `swapXAndY: true`
+    - with `replaceWithZero: true`
+    - with `replaceWithZero: true` and `swapXAndY: true`
 
-
-### [4. Exception Handling Example](example/exception_handling.dart)
-* It contains examples of following exceptions & errors -
-1. `NeedsAtLeastThreePoints` is thrown if `Polygon.points` contains less than 3 points
-2. `WrongSizeForPoint` is thrown if `toPoint()` has more or less than 2 element. Point has only x and y.
-3. **`TypeError` is thrown if `List<dynamic>` is passed instead of `List<num>`** 
-    * Here, casting can be used to cast `List<dynamic>` to `List<num>`
-    * e.g. ` print(toPoint([1,2]));` 
-      * Here, [1,2] has a type `List<dynamic>`
-      * So, use `[1,2].cast<num>()`
-4. `CastError example` - wrongly casting `List<num>` to `List<List<num>`
-
-
-### [5. Simple CSV example ](example/simple_csv.dart)
+### [4. Simple CSV example ](example/simple_csv.dart)
 * It contains examples of following functions - 
 1. Example of `IsInsideResultWithXY_ToCSVString` 
    * Saving `ArePointsInside Results` to "IsInside.csv"
@@ -89,6 +105,19 @@ pub dependencies.](https://pub.dartlang.org/packages/poly#-installing-tab- "inst
 4. Example of `csvToPoly`
     * Check if Point(18.507305, 73.806131) is inside Polygon readPolygon (Polygon from Polygon.csv)
 
+
+### [5. Exception Handling Example](example/exception_handling.dart)
+* It contains examples of following exceptions & errors -
+1. `NeedsAtLeastThreePoints` is thrown if `Polygon.points` contains less than 3 points
+2. `WrongSizeForPoint` is thrown if `toPoint()` has more or less than 2 element. Point has only x and y.
+3. **`TypeError` is thrown if `List<dynamic>` is passed instead of `List<num>`** 
+    * Here, casting can be used to cast `List<dynamic>` to `List<num>`
+    * e.g. ` print(toPoint([1,2]));` 
+      * Here, [1,2] has a type `List<dynamic>`
+      * So, use `[1,2].cast<num>()`
+4. `CastError example` - wrongly casting `List<num>` to `List<List<num>`
+
+
 ### [6. Easy Casting Example](example/easy_casting.dart)
 * Without casting `List<dynamic>` to `List<num>` `TypeError`is thrown
 1. Correct casting
@@ -106,9 +135,10 @@ pub dependencies.](https://pub.dartlang.org/packages/poly#-installing-tab- "inst
     * with `as List<List<num>>` - 
     > type `List<List<dynamic>>` is not a subtype of type `List<List<num>>` in type cast
 
+
 ## Note: Instead of casting, use `toListNum()` & `toListListNum()`
 * Use `toListNum()` for `List<dynamic>` => `List<num>`
-* Use `toListListNum()` for`List<List<dynamic>>` => `List<List<num>>`    
+* Use `toListListNum()` for`List<List<dynamic>>` => `List<List<num>>`
         
 
 # Function List
@@ -171,18 +201,9 @@ pub dependencies.](https://pub.dartlang.org/packages/poly#-installing-tab- "inst
 ### Checks if 2 `Polygon` have same vertices i.e. `points`
 * use `hasSamePoints()`
 
-### Exceptions
-1. `NeedsAtLeastThreePoints` is thrown if `Polygon.points` contains less than 3 points
-2. `WrongSizeForPoint` is thrown if `toPoint()` has more or less than 2 element. Point has only x and y.
-3. **`_TypeError` is thrown if `List<dynamic>` is passed instead of `List<num>`** 
-    * Here, casting can be used to cast `List<dynamic>` to `List<num>`
-    * e.g. ` print(toPoint([1,2]));` 
-      * Here, [1,2] has a type `List<dynamic>`
-      * So, use `[1,2].cast<num>()`
-4. `_CastError example` - casting `List<num>` to `List<List<num>`
 
 ### CSV
-#### `IsInsideResultWithXY_ToCSVString`
+#### `Get result(s) along with lat, lang as a CSV String : IsInsideResultWithXY_ToCSVString()`
 * Returns result of `ArePointsInside` as CSV String which can be later saved or displayed
 * Output CSV String will by default contain a header row - `latitude,longitude,isInside`
 * Optional parameter: `bool useXY` 
@@ -192,7 +213,7 @@ pub dependencies.](https://pub.dartlang.org/packages/poly#-installing-tab- "inst
      * if optional parameter - `includeHeader` is passed as `false`, returning String will not contain header row
  * Optional Named parameter: `String diffNameThanIsInside`
      * Different name than Default name(`isInside`) will be used by passing optional parameter: `diffNameThanIsInside`
-#### `toCSVString`
+#### `Get `Polygon` as CSV String : toCSVString()`
  * Returns `Polygon` as CSV String which can be later saved or displayed
  * Output CSV String will by default contain a header row - `latitude,longitude`
  * Optional Named parameter: `bool useXY`
@@ -200,13 +221,7 @@ pub dependencies.](https://pub.dartlang.org/packages/poly#-installing-tab- "inst
     * Default value of `useXY` is `false`
  * Optional Named parameter: `String includeHeader`
     * if optional parameter - `includeHeader` is is passed as `false`, returning String will not contain header row
-#### `csvToListOfList`
- * Returns `Future<List<List>>` based on `csvString`
-    * which then can be used - convert that list into `Polygon`
- * Optional parameter: `bool noHeader`
-     * By passing optional parameter: `noHeader` as `true`, Resulting List will not contain header row
-     * Default value `false`
-#### `csvToPoly`
+#### `Get `Future<Polygon>` based on `csvString` : csvToPoly()`
  * Returns `Future<Polygon>` based on `csvString`
  * `csvString` may or may not contain header row
  * This function checks if `latitude,longitude` or `x,y` are reversed
@@ -216,8 +231,23 @@ pub dependencies.](https://pub.dartlang.org/packages/poly#-installing-tab- "inst
    * This can be manually set by passing optional parameter: `isReversed` as `true`
  * Optional parameter: `isReversed`
    * `isReversed` has default value = `false`
+#### `csvToListOfList()`
+ * Returns `Future<List<List>>` based on `csvString`
+    * which then can be used - convert that list into `Polygon`
+ * Optional parameter: `bool noHeader`
+     * By passing optional parameter: `noHeader` as `true`, Resulting List will not contain header row
+     * Default value `false`
 
 
+### Exceptions
+1. `NeedsAtLeastThreePoints` is thrown if `Polygon.points` contains less than 3 points
+2. `WrongSizeForPoint` is thrown if `toPoint()` has more or less than 2 element. Point has only x and y.
+3. **`_TypeError` is thrown if `List<dynamic>` is passed instead of `List<num>`** 
+    * Here, casting can be used to cast `List<dynamic>` to `List<num>`
+    * e.g. ` print(toPoint([1,2]));` 
+      * Here, [1,2] has a type `List<dynamic>`
+      * So, use `[1,2].cast<num>()`
+4. `_CastError example` - casting `List<num>` to `List<List<num>`
 
 ## Features and bugs
 
