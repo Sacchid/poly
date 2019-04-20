@@ -4,7 +4,9 @@
 # Remove the following pattern if you wish to check in your lock file
 pubspec.lock
 
+# Do not include following example
 example/prabhag11.dart
+
 # Conventional directory for build outputs
 build/
 
