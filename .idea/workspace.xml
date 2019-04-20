@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1d89d7da-124c-49bb-9edc-27f68f0848d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -148,7 +144,7 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+              <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -254,11 +250,6 @@
             <path>
               <item name="poly" type="b2602c69:ProjectViewProjectNode" />
               <item name="poly" type="462c0819:PsiDirectoryNode" />
-              <item name="coverage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="poly" type="b2602c69:ProjectViewProjectNode" />
-              <item name="poly" type="462c0819:PsiDirectoryNode" />
               <item name="example" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -326,7 +317,7 @@
       <workItem from="1555518623192" duration="5305000" />
       <workItem from="1555590115891" duration="4727000" />
       <workItem from="1555595859639" duration="100000" />
-      <workItem from="1555596016706" duration="18908000" />
+      <workItem from="1555596016706" duration="19168000" />
     </task>
     <task id="LOCAL-00001" summary="v 1.0.0">
       <created>1554207026692</created>
@@ -339,7 +330,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171027000" />
+    <option name="totallyTimeSpent" value="171287000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -354,7 +345,7 @@
     <frame x="-8" y="32" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16414523" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16414523" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -692,7 +683,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
         </state>
       </provider>
     </entry>
