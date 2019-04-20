@@ -2,6 +2,10 @@ language: dart
 dart:
   # Install the latest stable release
   - stable
+
+install:
+  - gem install coveralls-lcov
+
 dart_task:
   - dartfmt: false
   - dartanalyzer: true
@@ -10,3 +14,6 @@ os:
   - linux
 #  - osx
   - windows
+
+after_success:
+  - coveralls-lcov coverage/lcov.info

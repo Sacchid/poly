@@ -1,6 +1,5 @@
 ## 1.0.0
-- Initial version, created by Stagehand
-- Had `Polygon`, `contains()`
+- Initial version, with `Polygon`, `contains()`
 ## 1.0.1 
 As suggested by pub.dartlang.org analysis
 - Ran dartfmt on poly.dart & 
@@ -25,5 +24,4 @@ Added following functions & examples for -
 - Added `toListListNum()` along with [examples](example/using_to.dart)
 
 ### 1.0.6
-- Updated documentation
-- Added Travis CI - [![build status](https://travis-ci.org/Sacchid/poly.svg)](https://travis-ci.org/Sacchid/poly#)
+- Updated documentation to include Travis CI [![build status](https://travis-ci.org/Sacchid/poly.svg)](https://travis-ci.org/Sacchid/poly#)
