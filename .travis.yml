@@ -3,9 +3,6 @@ dart:
   # Install the latest stable release
   - stable
 
-install:
-  - gem install coveralls-lcov
-
 dart_task:
   - dartfmt: false
   - dartanalyzer: true
@@ -15,5 +12,8 @@ os:
 #  - osx
   - windows
 
+install:
+  - gem install coveralls-lcov
+
 after_success:
-  - coveralls-lcov coverage/lcov.info
+  - coveralls-lcov --repo-token $COVERALLS_TOKEN coverage/lcov.info
