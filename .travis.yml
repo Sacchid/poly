@@ -12,8 +12,8 @@ os:
 #  - osx
   - windows
 
-install:
-  - gem install coveralls-lcov
-
-after_success:
-  - coveralls-lcov --repo-token $COVERALLS_TOKEN coverage/lcov.info
+#install:
+#  - gem install coveralls-lcov
+#
+#after_success:
+#  - coveralls-lcov --repo-token $COVERALLS_TOKEN coverage/lcov.info
