@@ -1,18 +1,18 @@
-import 'package:poly/poly.dart';
+//import 'package:poly/poly.dart';
 import 'package:spreadsheet_decoder/spreadsheet_decoder.dart';
 
 import 'dart:io';
 
 //FileSystemException: Cannot create file, path = 'test/files/test.xlsx' (OS Error: Access is denied.
 //, errno = 5)
-void createFileRecursively(String filename) {
-  if(!(Directory(filename).existsSync()))
-  // Create a new directory, recursively creating non-existent directories.
-  {
-    Directory(filename).createSync(recursive: true);
-    File(filename).createSync();
-  }
-}
+//void createFileRecursively(String filename) {
+//  if(!(Directory(filename).existsSync()))
+//  // Create a new directory, recursively creating non-existent directories.
+//  {
+//    Directory(filename).createSync(recursive: true);
+//    File(filename).createSync();
+//  }
+//}
 int rowLength(var decoder,{int worksheet=0,int row =0}){
   var table = decoder.tables[getNameOfWorksheet(decoder, worksheet : worksheet)];
   return table.rows[row].length;
@@ -61,7 +61,7 @@ List getNamesOfWorksheet(var decoder){
 //  File(file).writeAsBytesSync(decoder.encode());
 //}
 main(){
-  // unexpected behaviour - add new column instated of adding/updating cell - A3
+  // unexpected behaviour - add new column with value c instated of adding/updating cell - A3 with value c
   var file = "poly1.xlsx";
   String workSheet = 'Sheet1';
   var bytes = new File(file).readAsBytesSync();
