@@ -25,3 +25,9 @@ Added following functions & examples for -
 
 ### 1.0.6
 - Updated documentation to include Travis CI [![build status](https://travis-ci.org/Sacchid/poly.svg)](https://travis-ci.org/Sacchid/poly#)
+
+### 1.0.7
+* Added following functions - 
+    - `listOfList()`
+    - `pointToList()` : `Point` => `List<num>`
+    - `pointsToList`  : `List<Point>` => `List<List (x,y)>`

@@ -37,12 +37,16 @@ pub dependencies.](https://pub.dartlang.org/packages/poly#-installing-tab- "inst
 * Here `hasSamePoint()`, `isPointInside(Point( ))`, `contains(x,y)`, `areAllPointsInsidePolygon_ListPoint()` & `getList_IsListOfPointInside()` are used.
 
 ### [2. Example of Conversions `List <=> Point`, `List<Point> <=> List<List>` & other](example/conversion.dart) 
-1. Example of `toPoint()` 
+1. Example of `toPoint()` & `pointToList()`
    * `toPoint()` converts `List<num>` to `Point<num>`
-2. Example of `toListOfPoint()`
+    * `pointToList()` converts `Point<num>` to `List<num>`
+2. Example of `toListOfPoint()` & `pointsToList()`
    * `toListOfPoint()` converts `List<List<num>>` to `List<Point<num>>`
-3. Example of `toPolyFromListOfList()`
+   * `pointsToList()` converts `List<Point<num>>` to `List<List<num>>`
+3. Example of `toPolyFromListOfList()` & `listOfList()`
    * `toPolyFromListOfList()` converts `List<List<num>>` to `Polygon`
+   * `listOfList()` returns `Polygon.points` as `List<List<num>>`
+   * `toPolyFromListOfList()` gives Polygon & `backToListC2()` gives back List<List<num>>
    * Print status of List of List if they are inside our Polygon using `getList_IsListOfListInside`
    * Print if All points in List of List inside Polygon using
 
@@ -127,13 +131,26 @@ pub dependencies.](https://pub.dartlang.org/packages/poly#-installing-tab- "inst
 * Point can be created passing `List<num>` `toPoint()`.
 * List must have exact 2 elements, else will throw `WrongSizeForPoint` exception
 
+##### `Point(x,y)` to `List<num>` : use `pointToList()`
+* i.e.  `Point(x,y)` ->  `[x,y]`
+* List can be created passing `Point(x,y)` `pointToList()`.
+
 ##### `List<List<num>>` to `List<Point<num>>` : use `toListOfPoint()`
 * i.e. `[ [x1,y1],[x2,y2],... ]`  ->  `[ Point(x1,y1), Point(x2,y2),... ]`
 * List of Points can be created from `List<List<num>>` by passing it to `toListOfPoint()`
 
+##### `List<Point<num>>` to `List<List<num>>` : use `pointsToList()`
+* i.e.  `[ Point(x1,y1), Point(x2,y2),... ]` ->  `[ [x1,y1],[x2,y2],... ]`
+* List can be created passing `List<Point<num>>` `pointsToList()`.
+
 ##### `List<List<num>>` to `Polygon` : use `toPolyFromListOfList()`
 * i.e. `[ [x1,y1],[x2,y2],... ]`  ->  `Polygon( Point(x1,y1), Point(x2,y2),... )`
-* Polygon can be returned from `List<List<num>>` by passing it to `toPolyFromListOfList`
+* Polygon can be returned from `List<List<num>>` by passing it to `toPolyFromListOfList()`
+
+##### `List<List<num>>` to `Polygon` : use `listOfList()`
+* i.e. `[ [x1,y1],[x2,y2],... ]`  from  `Polygon( Point(x1,y1), Point(x2,y2),... )` 
+* `List<List<num>>` can be returned from `Polygon` by passing it to `listOfList()`
+
  
 ##### `List<dynamic>` to `List<num>` : use `toListNum()`
  * Returns `List<num>` from a `List<dynamic>`

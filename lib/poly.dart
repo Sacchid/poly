@@ -76,6 +76,12 @@ Point toPoint(List<num> list_of_xy) {
 //    return Point(x,y);
 }
 
+///  `Point` to `List<num>`
+List<num> pointToList(Point inPoint) {
+  List<num> output = [inPoint.x, inPoint.y];
+  return output;
+}
+
 //TODO - Add a check to see if it's List<List<num>> or just List if it's casted ?
 /// `List<List (x,y)>` to `List<Point>`
 List<Point<num>> toListOfPoint(List<List<num>> list_of_list) {
@@ -84,6 +90,15 @@ List<Point<num>> toListOfPoint(List<List<num>> list_of_list) {
     _out_list_of_point.add(toPoint(_element_in_list_of_list));
   });
   return _out_list_of_point;
+}
+
+/// `List<Point>` to `List<List (x,y)>`
+List<List<num>> pointsToList(List<Point<num>> inputListOfPoint) {
+  List<List<num>> _out = [];
+  for (int _i = 0; _i < inputListOfPoint.length; _i++) {
+    _out.add(pointToList(inputListOfPoint[_i]));
+  }
+  return _out;
 }
 
 /// `List<List (x,y)>` to `Polygon`
@@ -269,6 +284,11 @@ class Polygon {
       //  throw new ArgumentError("Please provide three or more points.");
     }
 //    name = tname;
+  }
+
+  /// returns `List<List<num>>`
+  List<List<num>> listOfList() {
+    return pointsToList(points);
   }
 
   /// returns `true` if `(x,y)` is present inside `Polygon`
