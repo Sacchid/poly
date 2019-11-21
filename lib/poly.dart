@@ -4,7 +4,7 @@ library poly;
 
 export 'dart:math' show Point;
 
-import 'dart:math' show Point;
+import 'dart:math' show Point,asin,sqrt,pow,sin,cos,pi;
 import 'package:csv/csv.dart';
 import 'dart:convert' show utf8;
 import 'package:collection/collection.dart' as checkList
@@ -316,6 +316,37 @@ class Polygon {
     }
 
     return (depth & 1) == 1;
+  }
+
+/// Calculates distance between two points {lat1,lon1} and {lat2,lon2} in meter
+  /// TODO add examples & tests
+  double distanceInMeter(double lat1,double lon1,double lat2,double lon2){
+    double d;
+    // d in rad
+    d = 2*asin(sqrt((pow((sin((lat1-lat2)/2)),2))+
+        cos(lat1)*cos(lat2)*(pow((sin((lon1-lon2)/2)),2))));
+    // d in nm
+    d = d *180*60/pi;
+    // d in m
+    d = d * 1852;
+    return d;
+  }
+  /// Checks if `Point i` is inside Polygon with tolerance of T meter
+  /// TODO add examples & tests
+  // The following function is not completely optimized yet
+  bool isPointInsideT(Point i,double T){
+    if(isPointInside(i)){
+      return true;
+    }
+    else{
+      double dis=0,dd=0;
+      dis = distanceInMeter(i.x, i.y, points[0].x, points[0].y);
+      for (int j = 1; j < points.length; j++) {
+        dd = distanceInMeter(i.x, i.y, points[j].x, points[j].y);
+        dis = dd > dis ? dd : dis;
+      }
+      return dis > T ? false : true;
+    }
   }
 
   /// Checks if 2 `Polygon` have same vertices i.e. `points`

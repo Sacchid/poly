@@ -184,6 +184,9 @@ pub dependencies.](https://pub.dartlang.org/packages/poly#-installing-tab- "inst
   * returns `true` if `(x,y)` is present inside `Polygon`
   ###### Get Status by passing `Point(x,y)` to `isPointInside`
   * returns `true` if `Point` is present inside `Polygon`
+
+##### Check if Single `Point` is inside Polygon with tolerance of T meter
+  ###### Get Status by passing `Point(x,y)` and Tolerance `T` to `isPointInside`
   
 ##### Check if Multiple Points are inside given Polygon
  ###### Get Status of each Point

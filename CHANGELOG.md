@@ -31,3 +31,8 @@ Added following functions & examples for -
     - `listOfList()`
     - `pointToList()` : `Point` => `List<num>`
     - `pointsToList`  : `List<Point>` => `List<List (x,y)>`
+    
+### 1.0.7+1
+* Added following functions - 
+    - `distanceInMeter` which calculates distance between two points {lat1,lon1} and {lat2,lon2} in meter
+    - `isPointInsideT`
