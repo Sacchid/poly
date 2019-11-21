@@ -319,6 +319,7 @@ class Polygon {
   }
 
 /// Calculates distance between two points {lat1,lon1} and {lat2,lon2} in meter
+  /// source - https://edwilliams.org/avform.htm#Dist
   /// TODO add examples & tests
   double distanceInMeter(double lat1,double lon1,double lat2,double lon2){
     double d;

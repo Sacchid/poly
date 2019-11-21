@@ -297,6 +297,8 @@ Implemented `contains` function logic from [StageXL - A fast and universal 2D re
 
 As, StageXL imports ``dart:html``, it can not be used in [console application](https://www.dartlang.org/tutorials/server/cmdline) or in [aqueduct back-end](https://aqueduct.io/).
 
+Also, function `distanceInMeter` is implemented by using formulas for [Algorithm](https://edwilliams.org/avform.htm#Dist) & [it's NOAA online calculator](www.nhc.noaa.gov)
+
 Created from templates made available by Stagehand under a BSD-style
 [license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
 
