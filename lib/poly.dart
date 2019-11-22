@@ -4,10 +4,10 @@ library poly;
 
 export 'dart:math' show Point;
 
-import 'dart:math' show Point,asin,sqrt,pow,sin,cos,pi;
+import 'dart:math' show Point, asin, sqrt, pow, sin, cos, pi;
 import 'package:csv/csv.dart';
 import 'dart:convert' show utf8;
-import 'package:collection/collection.dart' as checkList
+import 'package:collection/collection.dart' as check_list
     show DeepCollectionEquality;
 
 // Appends 2 or 3 Strings - DO not use - problem
@@ -71,8 +71,9 @@ Point toPoint(List<num> list_of_xy) {
   int _length_of_list_xy = list_of_xy.length;
   if (_length_of_list_xy == 2) {
     return Point(list_of_xy[0], list_of_xy[1]);
-  } else
+  } else {
     throw WrongSizeForPoint(_length_of_list_xy);
+  }
 //    return Point(x,y);
 }
 
@@ -318,33 +319,34 @@ class Polygon {
     return (depth & 1) == 1;
   }
 
-/// Calculates distance between two points {lat1,lon1} and {lat2,lon2} in meter
+  /// Calculates distance between two points {lat1,lon1} and {lat2,lon2} in meter
   /// source - https://edwilliams.org/avform.htm#Dist
   /// TODO add examples & tests
-  double distanceInMeter(double lat1,double lon1,double lat2,double lon2){
+  double distanceInMeter(double lat1, double lon1, double lat2, double lon2) {
     double d;
     // d in rad
-    d = 2*asin(sqrt((pow((sin((lat1-lat2)/2)),2))+
-        cos(lat1)*cos(lat2)*(pow((sin((lon1-lon2)/2)),2))));
+    d = 2 *
+        asin(sqrt((pow((sin((lat1 - lat2) / 2)), 2)) +
+            cos(lat1) * cos(lat2) * (pow((sin((lon1 - lon2) / 2)), 2))));
     // d in nm
-    d = d *180*60/pi;
+    d = d * 180 * 60 / pi;
     // d in m
     d = d * 1852;
     return d;
   }
+
   /// Checks if `Point i` is inside Polygon with tolerance of T meter
   /// TODO add examples & tests
   // The following function is not completely optimized yet
-  bool isPointInsideT(Point i,double T){
-    if(isPointInside(i)){
+  bool isPointInsideT(Point i, double T) {
+    if (isPointInside(i)) {
       return true;
-    }
-    else{
-      double dis=0,dd=0;
+    } else {
+      double dis = 0, dd = 0;
       dis = distanceInMeter(i.x, i.y, points[0].x, points[0].y);
       for (int j = 1; j < points.length; j++) {
         dd = distanceInMeter(i.x, i.y, points[j].x, points[j].y);
-        dis = dd > dis ? dd : dis;
+        dis = dd < dis ? dd : dis;
       }
       return dis > T ? false : true;
     }
@@ -358,7 +360,7 @@ class Polygon {
     } else {
 //      int _length = points.length;
       Function deepEq =
-          const checkList.DeepCollectionEquality.unordered().equals;
+          const check_list.DeepCollectionEquality.unordered().equals;
       return deepEq(points, anotherPolygon.points);
     }
   }
@@ -489,7 +491,7 @@ Future<List<List>> csvToListOfList(var csvString,
     {bool noHeader = false}) async {
   final List<List> listOfList = await csvString
       .transform(utf8.decoder)
-      .transform(new CsvToListConverter())
+      .transform(CsvToListConverter())
       .toList();
   if (noHeader) {
     listOfList.removeAt(0);
@@ -509,7 +511,7 @@ Future<List<List>> csvToListOfList(var csvString,
 Future<Polygon> csvToPoly(var csvString, {bool isReversed = false}) async {
   List<List> _listOfList = await csvString
       .transform(utf8.decoder)
-      .transform(new CsvToListConverter())
+      .transform(CsvToListConverter())
       .toList();
   if (_listOfList[0][0].runtimeType == String) {
     isReversed = isReversed

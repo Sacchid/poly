@@ -202,13 +202,13 @@ main() async {
   //* e.g. here "longitude" and "Example String"
   //* As, previously `xY_IsInside_ToCSVString` returned String with header
   //* because optional parameter `header` was not set to false
-  final IsInsideList = new File(nameOfIsInsideResult).openRead();
+  final IsInsideList = File(nameOfIsInsideResult).openRead();
   final l = await csvToListOfList(IsInsideList);
   print("${++countCSV}. e.g. here ${l[0][1]} and ${l[0][2]}");
 
   // Example of `csvToPoly`
   //* Check if Point(18.507305, 73.806131) is inside Polygon readPolygon (Polygon from Polygon.csv)
-  final readPolygon = new File(nameOfPolygon).openRead();
+  final readPolygon = File(nameOfPolygon).openRead();
   Polygon newPolygon = await csvToPoly(readPolygon);
   print(
       "${++countCSV}. Is Point(18.507305, 73.806131) inside Polygon (saved in Polygon.csv) : ${newPolygon.contains(18.507305, 73.806131)}");

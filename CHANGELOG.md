@@ -36,3 +36,5 @@ Added following functions & examples for -
 * Added following functions - 
     - `distanceInMeter` which calculates distance between two points {lat1,lon1} and {lat2,lon2} in meter
     - `isPointInsideT`
+### 1.0.7+2 
+* Fix to `isPointInsideT`   
