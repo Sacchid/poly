@@ -2,8 +2,8 @@ import 'package:poly/poly.dart';
 import 'dart:io';
 
 main() async {
-  int countCSV = 0;
-  Polygon location_eleven = Polygon([
+  var countCSV = 0;
+  var location_eleven = Polygon([
     Point(18.507305, 73.806131),
     Point(18.508689, 73.806131),
     Point(18.509299, 73.805916),
@@ -74,7 +74,7 @@ main() async {
     Point(18.507346, 73.807611),
     Point(18.507305, 73.806131),
   ]);
-  List<Point<num>> checkPoints = [
+  var checkPoints = <Point<num>>[
     Point(18.5124785, 73.8206602),
     Point(18.5112654, 73.8172661),
     Point(18.5016256, 73.8094801),
@@ -171,8 +171,8 @@ main() async {
     Point(18.5542557, 73.8051856),
   ];
 
-  String nameOfIsInsideResult = "IsInside.csv";
-  String nameOfPolygon = "Polygon.csv";
+  var nameOfIsInsideResult = 'IsInside.csv';
+  var nameOfPolygon = 'Polygon.csv';
 
   // Example of `IsInsideResultWithXY_ToCSVString`
   //* Saving `ArePointsInside Results` to "IsInside.csv"
@@ -180,9 +180,9 @@ main() async {
   //  * And as `diffNameThanIsInside:"Example String"` is passed,
   //  * Header row will be `latitude,longitude,Example String`
   // Get `ArePointsInside` as CSV String - `csvOfIsInsideResult`
-  String csvOfIsInsideResult = location_eleven.IsInsideResultWithXY_ToCSVString(
+  var csvOfIsInsideResult = location_eleven.IsInsideResultWithXY_ToCSVString(
       checkPoints,
-      diffNameThanIsInside: "Example String");
+      diffNameThanIsInside: 'Example String');
   // Write `String csvOfIsInsideResult` to "IsInside.csv"
   File(nameOfIsInsideResult).writeAsStringSync(csvOfIsInsideResult);
   print('${++countCSV}. ArePointsInside Results saved to IsInside.csv ');
@@ -192,7 +192,7 @@ main() async {
   //  * Headers row will be added, as `includeHeader` isn't passed as `false`
   //  * And as `useXY` is passed as `true`
   //  * Header row will be `x,y`
-  String csvOfPolygon = location_eleven.toCSVString(useXY: true);
+  var csvOfPolygon = location_eleven.toCSVString(useXY: true);
   // Write `String csvOfIsInsideResult` to "Polygon.csv"
   File(nameOfPolygon).writeAsStringSync(csvOfPolygon);
   print('${++countCSV}. `Polygon.points` saved to Polygon.csv ');
@@ -203,13 +203,13 @@ main() async {
   //* As, previously `xY_IsInside_ToCSVString` returned String with header
   //* because optional parameter `header` was not set to false
   final IsInsideList = File(nameOfIsInsideResult).openRead();
-  final l = await csvToListOfList(IsInsideList);
-  print("${++countCSV}. e.g. here ${l[0][1]} and ${l[0][2]}");
+  final l = await (csvToListOfList(IsInsideList) as Future<List<List<dynamic>>>);
+  print('${++countCSV}. e.g. here ${l[0][1]} and ${l[0][2]}');
 
   // Example of `csvToPoly`
   //* Check if Point(18.507305, 73.806131) is inside Polygon readPolygon (Polygon from Polygon.csv)
   final readPolygon = File(nameOfPolygon).openRead();
-  Polygon newPolygon = await csvToPoly(readPolygon);
+  var newPolygon = await csvToPoly(readPolygon);
   print(
-      "${++countCSV}. Is Point(18.507305, 73.806131) inside Polygon (saved in Polygon.csv) : ${newPolygon.contains(18.507305, 73.806131)}");
+      '${++countCSV}. Is Point(18.507305, 73.806131) inside Polygon (saved in Polygon.csv) : ${newPolygon.contains(18.507305, 73.806131)}');
 }
