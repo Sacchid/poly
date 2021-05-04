@@ -195,7 +195,7 @@ List<num> toListNum(List _inputList,
 ///     - Default value `false`
 ///     - When set `true`, `xi` will be swapped with `yi`
 ///       - i.e. `[ [x1,y1], [x2,y2], ...]` -> `[ [y1,x1], [y2,x2], ...]`
-List<List<num>> toListListNum(List _inputListOfList,
+List<List<num?>> toListListNum(List _inputListOfList,
     {bool swapXAndY = false, bool replaceWithZero = false}) {
   var _listOfList = []..addAll(_inputListOfList);
   if (_listOfList[0][0].runtimeType == String) {
@@ -230,7 +230,7 @@ List<List<num>> toListListNum(List _inputListOfList,
             ((_i[1].runtimeType == String) || (_i[1].runtimeType == bool))));
   }
   lengthOfPoints = _listOfList.length;
-  List<List<num>> numList = [];
+  List<List<num?>> numList = [];
 
   if (swapXAndY) {
     for (int _i = 0; _i < lengthOfPoints; _i++) {
@@ -273,7 +273,7 @@ List<List<num>> toListListNum(List _inputListOfList,
 /// A class for representing two-dimensional Polygon defined with `List<Point<num>> points`.
 class Polygon {
   final List<Point<num>> points;
-  String name;
+  String? name;
   // double version;
 
   ///Create a `Polygon` with vertices at `points`.
@@ -343,9 +343,9 @@ class Polygon {
       return true;
     } else {
       double dis = 0, dd = 0;
-      dis = distanceInMeter(i.x, i.y, points[0].x, points[0].y);
+      dis = distanceInMeter(i.x as double, i.y as double, points[0].x as double, points[0].y as double);
       for (int j = 1; j < points.length; j++) {
-        dd = distanceInMeter(i.x, i.y, points[j].x, points[j].y);
+        dd = distanceInMeter(i.x as double, i.y as double, points[j].x as double, points[j].y as double);
         dis = dd < dis ? dd : dis;
       }
       return dis > T ? false : true;
@@ -353,7 +353,7 @@ class Polygon {
   }
 
   /// Checks if 2 `Polygon` have same vertices i.e. `points`
-  bool hasSamePoints(Polygon anotherPolygon) {
+  bool? hasSamePoints(Polygon anotherPolygon) {
     bool same = (points.length == anotherPolygon.points.length);
     if (!same) {
       return false;
@@ -428,18 +428,18 @@ class Polygon {
   ///    * Different name than Default name(`isInside`) will be used by passing optional parameter: `diffNameThanIsInside`
   String IsInsideResultWithXY_ToCSVString(List<Point<num>> inputListOfPoint,
       {bool includeHeader = true,
-      String diffNameThanIsInside,
+      String? diffNameThanIsInside,
       bool useXY = false}) {
     List<List> xYOut = [];
     if (includeHeader) {
       String headerX = useXY ? "x" : "latitude";
       String headerY = useXY ? "y" : "longitude";
       // TODO - Remove three quotation marks """Example Name_with_space""" when '"x"' is used, instead of "x"
-      diffNameThanIsInside = containsSpace(diffNameThanIsInside)
+      diffNameThanIsInside = containsSpace(diffNameThanIsInside!)
           ? '${diffNameThanIsInside}'
           : diffNameThanIsInside;
 //      print(diffNameThanIsInside);
-      String headerIs = (diffNameThanIsInside?.isNotEmpty ?? false)
+      String? headerIs = (diffNameThanIsInside?.isNotEmpty ?? false)
           ? diffNameThanIsInside
           : "isInside";
       var headerL = [headerX, headerY, headerIs];
@@ -487,14 +487,14 @@ class Polygon {
 /// * Optional parameter: `bool noHeader`
 ///     * By passing optional parameter: `noHeader` as `true`, Resulting List will not contain header row
 ///     * Default value `false`
-Future<List<List>> csvToListOfList(var csvString,
+Future<List<List>?> csvToListOfList(var csvString,
     {bool noHeader = false}) async {
-  final List<List> listOfList = await csvString
+  final List<List>? listOfList = await csvString
       .transform(utf8.decoder)
       .transform(CsvToListConverter())
       .toList();
   if (noHeader) {
-    listOfList.removeAt(0);
+    listOfList!.removeAt(0);
   }
   return listOfList;
 }

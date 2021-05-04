@@ -22,14 +22,14 @@ main() {
       "${++correct_count}. Type of listPointFromDynamicList is ${listPointFromDynamicList.runtimeType}, while correctDynamicListOfList was ${correctDynamicListOfList.runtimeType} \t //See casting worked as desired");
 
   // * Using `toListListNum`
-  List<List<num>> l = toListListNum([correctDynamicList]);
+  List<List<num?>> l = toListListNum([correctDynamicList]);
   print(
       "${++correct_count}. ${l} has type:${l.runtimeType} & has length:${l.length}");
 
   //  Without casting `List<dynamic>` to `List<num>` `TypeError`is thrown as shown below :
   try {
     List wrongDynamicList = [1, 2];
-    var wrongPoint = toPoint(wrongDynamicList);
+    var wrongPoint = toPoint(wrongDynamicList as List<num>);
     print(wrongPoint.runtimeType);
   } on TypeError catch (e) {
     print(
@@ -41,7 +41,7 @@ main() {
   //    * type `int` is not a subtype of type `List<num>` in type cast
   try {
     List wrongDynamicList = [1, 2];
-    var wrongPoint = toListOfPoint(wrongDynamicList);
+    var wrongPoint = toListOfPoint(wrongDynamicList as List<List<num>>);
     print(wrongPoint.runtimeType);
   } on TypeError catch (e) {
     print(
