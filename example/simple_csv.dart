@@ -203,7 +203,7 @@ main() async {
   //* As, previously `xY_IsInside_ToCSVString` returned String with header
   //* because optional parameter `header` was not set to false
   final IsInsideList = File(nameOfIsInsideResult).openRead();
-  final l = await csvToListOfList(IsInsideList);
+  final l = await (csvToListOfList(IsInsideList) as FutureOr<List<List<dynamic>>>);
   print("${++countCSV}. e.g. here ${l[0][1]} and ${l[0][2]}");
 
   // Example of `csvToPoly`
