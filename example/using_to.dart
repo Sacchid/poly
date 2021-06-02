@@ -54,5 +54,4 @@ main() {
       toListListNum(listOf, replaceWithZero: true, swapXAndY: true);
   print(
       "${++correct_count}. Using `toListListNum` with `replaceWithZero: true` and `swapXAndY: true`,${mZeroSwap} has type:${mZeroSwap.runtimeType} & has length:${mZeroSwap.length}");
-
 }

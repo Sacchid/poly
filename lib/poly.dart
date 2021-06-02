@@ -62,8 +62,8 @@ class WrongSizeForPoint implements Exception {
 //TO DO - Casting ??
 // can we check if List<dynamic> is List<num> ?? Replace List<num> with List
 ///* returns `true` if `String` contains Space
-bool containsSpace(String inputString) {
-  return inputString.contains(" ");
+bool containsSpace(String? inputString) {
+  return inputString?.contains(" ") ?? false;
 }
 
 /// `List<num>` to `Point`
@@ -273,7 +273,7 @@ List<List<num>> toListListNum(List _inputListOfList,
 /// A class for representing two-dimensional Polygon defined with `List<Point<num>> points`.
 class Polygon {
   final List<Point<num>> points;
-  String name;
+  //String name;
   // double version;
 
   ///Create a `Polygon` with vertices at `points`.
@@ -322,7 +322,7 @@ class Polygon {
   /// Calculates distance between two points {lat1,lon1} and {lat2,lon2} in meter
   /// source - https://edwilliams.org/avform.htm#Dist
   /// TODO add examples & tests
-  double distanceInMeter(double lat1, double lon1, double lat2, double lon2) {
+  double distanceInMeter(num lat1, num lon1, num lat2, num lon2) {
     double d;
     // d in rad
     d = 2 *
@@ -428,7 +428,7 @@ class Polygon {
   ///    * Different name than Default name(`isInside`) will be used by passing optional parameter: `diffNameThanIsInside`
   String IsInsideResultWithXY_ToCSVString(List<Point<num>> inputListOfPoint,
       {bool includeHeader = true,
-      String diffNameThanIsInside,
+      String? diffNameThanIsInside,
       bool useXY = false}) {
     List<List> xYOut = [];
     if (includeHeader) {
@@ -440,7 +440,7 @@ class Polygon {
           : diffNameThanIsInside;
 //      print(diffNameThanIsInside);
       String headerIs = (diffNameThanIsInside?.isNotEmpty ?? false)
-          ? diffNameThanIsInside
+          ? diffNameThanIsInside!
           : "isInside";
       var headerL = [headerX, headerY, headerIs];
       xYOut.add(headerL);

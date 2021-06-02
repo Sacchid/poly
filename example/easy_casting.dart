@@ -28,7 +28,7 @@ main() {
 
   //  Without casting `List<dynamic>` to `List<num>` `TypeError`is thrown as shown below :
   try {
-    List wrongDynamicList = [1, 2];
+    var wrongDynamicList = [1, 2];
     var wrongPoint = toPoint(wrongDynamicList);
     print(wrongPoint.runtimeType);
   } on TypeError catch (e) {
@@ -37,10 +37,10 @@ main() {
   }
 
   //  2. Passing `List` instead of `List<List>`
-  //  * Passing `List` instead of `List<List>` & casting it : throws `CastError` as shown below :
+  //  * Passing `List` instead of `List<List>` & casting it : throws `Error` as shown below :
   //    * type `int` is not a subtype of type `List<num>` in type cast
   try {
-    List wrongDynamicList = [1, 2];
+    dynamic wrongDynamicList = [1, 2];
     var wrongPoint = toListOfPoint(wrongDynamicList);
     print(wrongPoint.runtimeType);
   } on TypeError catch (e) {
@@ -53,7 +53,7 @@ main() {
     List wrongDynamicList = [1, 2];
     var wrongPoint = toListOfPoint(wrongDynamicList.cast());
     print(wrongPoint.runtimeType);
-  } on CastError catch (e) {
+  } on Error catch (e) {
     print(
         "${++exception_count}. ${e.runtimeType} Exception handled : \n \t \u2022 ${e}");
   }
@@ -61,8 +61,8 @@ main() {
   try {
     var l = [correctDynamicList];
     print("${l.runtimeType}");
-    List<Point> wrongListOfList = toListOfPoint(l.cast());
-  } on CastError catch (e) {
+    List<Point> _ = toListOfPoint(l.cast());
+  } on Error catch (e) {
     print(
         "${++exception_count}. ${e.runtimeType} Exception handled : \n \t \u2022 ${e}");
   }
@@ -71,8 +71,8 @@ main() {
   try {
     var l = [correctDynamicList] as List<List<num>>;
     print("${l.runtimeType}");
-    List<Point> wrongListOfList = toListOfPoint(l.cast());
-  } on CastError catch (e) {
+    List<Point> _ = toListOfPoint(l.cast());
+  } on Error catch (e) {
     print(
         "${++exception_count}. ${e.runtimeType} Exception handled : \n \t \u2022 ${e}");
   }
@@ -85,11 +85,11 @@ main() {
             .cast()
             .toList();
     print("${l.runtimeType}");
-    List<Point> wrongListOfList = toListOfPoint(l.cast());
+    List<Point> _ = toListOfPoint(l.cast());
   } on TypeError catch (e) {
     print(
         "${++exception_count}. ${e.runtimeType} Exception handled : \n \t \u2022 ${e}");
-  } on CastError catch (e) {
+  } on Error catch (e) {
     print(
         "${++exception_count}. ${e.runtimeType} Exception handled : \n \t \u2022 ${e}");
   }

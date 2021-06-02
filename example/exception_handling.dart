@@ -27,7 +27,7 @@ main() {
   // Exception - 2
   ///WrongSizeForPoint is thrown if to_Point has more or less than 2 element. Point has only x and y.
   try {
-    Point pointWithMoreThanXY = toPoint(w1);
+    Point _ = toPoint(w1);
   } on WrongSizeForPoint catch (e) {
     print(
         "${++exception_count}. ${e.runtimeType} Exception handled : \n \t \u2022 Wrong size, List must have 2 element. Current Size: ${e.inputListLength()}");
@@ -37,7 +37,7 @@ main() {
   /// `TypeError` is thrown if `List<dynamic>` is passed instead of `List<num>`
   /// e.g. type 'List<dynamic>' is not a subtype of type 'List<num>'
   try {
-    List dy = [1, 2];
+    dynamic dy = [1, 2];
     var ttemp = toPoint(dy);
     print(ttemp.runtimeType);
   } on TypeError catch (e) {
@@ -48,7 +48,7 @@ main() {
 //  Exception - 4
   /// `CastError` example - List<num> to List<List<int>>
   try {
-    Polygon wrongPoly = toPolyFromListOfList(w1.cast());
+    Polygon _ = toPolyFromListOfList(w1.cast());
   } on TypeError catch (e) {
     print(
         "${++exception_count}. ${e.runtimeType} Exception handled : \n \t \u2022 ${e}");
