@@ -23,7 +23,7 @@ void main() {
     ]);
     Point in1 = Point(18.48569, 73.85067);
     test("`hasSamePoint()`",(){
-      bool areTwoSame = testPolygon.hasSamePoints(copyOfFirstPolygon);
+      bool? areTwoSame = testPolygon.hasSamePoints(copyOfFirstPolygon);
       expect(areTwoSame,equals(true));
     });
     test("`isPointInside` ",(){
@@ -127,7 +127,7 @@ void main() {
           });
         });
       group("without any optional parameters: ",() {
-        List<List<num>> m = toListListNum(listOf);
+        List<List<num?>> m = toListListNum(listOf);
         test("Type", () {
           var type = m.runtimeType.toString();
           expect(type, equals("List<List<num>>"));
@@ -141,7 +141,7 @@ void main() {
         });
       });
       group("with `swapXAndY: true`: ",(){
-        List<List<num>> mSwap = toListListNum(listOf, swapXAndY: true);
+        List<List<num?>> mSwap = toListListNum(listOf, swapXAndY: true);
         test("Type",(){
           var type = mSwap.runtimeType.toString();
           expect(type,equals("List<List<num>>"));
@@ -155,7 +155,7 @@ void main() {
         });
       });
       group("with `replaceWithZero: true`:",(){
-        List<List<num>> mZero = toListListNum(listOf, replaceWithZero: true);
+        List<List<num?>> mZero = toListListNum(listOf, replaceWithZero: true);
         test("Type",(){
           var type = mZero.runtimeType.toString();
           expect(type,equals("List<List<num>>"));
@@ -169,7 +169,7 @@ void main() {
         });
       });
         group("with `replaceWithZero: true` and `swapXAndY: true`: ",(){
-          List<List<num>> mZeroSwap =
+          List<List<num?>> mZeroSwap =
           toListListNum(listOf, replaceWithZero: true, swapXAndY: true);
           test("Type",(){
             var type = mZeroSwap.runtimeType.toString();
