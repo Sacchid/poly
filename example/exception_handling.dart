@@ -38,7 +38,7 @@ main() {
   /// e.g. type 'List<dynamic>' is not a subtype of type 'List<num>'
   try {
     List dy = [1, 2];
-    var ttemp = toPoint(dy);
+    var ttemp = toPoint(dy as List<num>);
     print(ttemp.runtimeType);
   } on TypeError catch (e) {
     print(

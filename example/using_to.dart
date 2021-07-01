@@ -35,22 +35,22 @@ main() {
   print(
       "\n\u2022 Old List:${listOf} has type:${listOf.runtimeType} & has length:${listOf.length}");
 
-  List<List<num>> m = toListListNum(listOf);
+  List<List<num?>> m = toListListNum(listOf);
   print(
       "${++correct_count}. Using `toListListNum`,${m} has type:${m.runtimeType} & has length:${m.length}");
 
   // * Example of `toListListNum` with `swapXAndY: true`
-  List<List<num>> mSwap = toListListNum(listOf, swapXAndY: true);
+  List<List<num?>> mSwap = toListListNum(listOf, swapXAndY: true);
   print(
       "${++correct_count}. Using `toListListNum` with `swapXAndY: true`,${mSwap} has type:${mSwap.runtimeType} & has length:${mSwap.length}");
 
   // * Example of `toListListNum` with `replaceWithZero: true`
-  List<List<num>> mZero = toListListNum(listOf, replaceWithZero: true);
+  List<List<num?>> mZero = toListListNum(listOf, replaceWithZero: true);
   print(
       "${++correct_count}. Using `toListListNum` with `replaceWithZero: true`,${mZero} has type:${mZero.runtimeType} & has length:${mZero.length}");
 
   // * Example of `toListListNum` with `replaceWithZero: true` and `swapXAndY: true`
-  List<List<num>> mZeroSwap =
+  List<List<num?>> mZeroSwap =
       toListListNum(listOf, replaceWithZero: true, swapXAndY: true);
   print(
       "${++correct_count}. Using `toListListNum` with `replaceWithZero: true` and `swapXAndY: true`,${mZeroSwap} has type:${mZeroSwap.runtimeType} & has length:${mZeroSwap.length}");
